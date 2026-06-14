@@ -336,8 +336,6 @@
 //   );
 // }
 
-
-
 // import Link from "next/link";
 // import { Leaf, Phone, MessageCircle, Search } from "lucide-react";
 // import Image from "next/image";
@@ -678,12 +676,12 @@
 //   );
 // }
 
-"use client"
+"use client";
 
-import Link from "next/link"
-import { Leaf, Phone, MessageCircle, Search } from "lucide-react"
-import Image from "next/image"
-import Head from "next/head"
+import Link from "next/link";
+import { Leaf, Phone, MessageCircle, Search } from "lucide-react";
+import Image from "next/image";
+import Head from "next/head";
 
 export default function Home() {
   const categories = [
@@ -695,7 +693,7 @@ export default function Home() {
     { name: "Women's Health", icon: "👩", hindi: "महिला स्वास्थ्य" },
     { name: "Children's Care", icon: "👶", hindi: "बाल स्वास्थ्य" },
     { name: "Pain Relief", icon: "💪", hindi: "दर्द निवारण" },
-  ]
+  ];
 
   const quickActions = [
     {
@@ -722,7 +720,7 @@ export default function Home() {
       descHindi: "त्वरित प्रश्नों के लिए व्हाट्सएप के माध्यम से तुरंत जुड़ें",
       link: "https://wa.me/919608628633",
     },
-  ]
+  ];
 
   return (
     <main>
@@ -749,7 +747,9 @@ export default function Home() {
               <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4 leading-tight">
                 Healing Naturally with Homeopathy
                 <br />
-                <span className="text-sm">होम्योपैथी के साथ प्राकृतिक उपचार</span>
+                <span className="text-sm">
+                  होम्योपैथी के साथ प्राकृतिक उपचार
+                </span>
               </h1>
 
               <p className="text-primary font-medium mt-2 text-lg">
@@ -757,10 +757,13 @@ export default function Home() {
               </p>
 
               <p className="text-lg text-foreground/80 mb-8 mt-4">
-                Experience 35 years of expertise with <strong>Dr. M.H. Rizwi</strong>. Free consultations available via video call, chat, or phone.
+                Experience 35 years of expertise with{" "}
+                <strong>Dr. M.H. Rizwi</strong>. Free consultations available
+                via video call, chat, or phone.
                 <br />
                 <span className="text-sm">
-                  डॉ. एम.एच. रिज़वी के साथ 35 वर्षों के अनुभव का अनुभव करें। वीडियो कॉल, चैट या फोन के माध्यम से मुफ्त परामर्श उपलब्ध है।
+                  डॉ. एम.एच. रिज़वी के साथ 35 वर्षों के अनुभव का अनुभव करें।
+                  वीडियो कॉल, चैट या फोन के माध्यम से मुफ्त परामर्श उपलब्ध है।
                 </span>
               </p>
 
@@ -791,10 +794,15 @@ export default function Home() {
             <div className="hidden md:flex justify-center animate-slide-in-right">
               <div className="w-[600px] h-[330px] rounded-xl overflow-hidden shadow-xl border-4 border-primary/30">
                 <video
-                  src="/images/gnmvideo01.mp4"
+                  src="/images/gn2.mp4"
+                  // controls
+                  // muted={false}
+                  // playsInline
+                  // style={{ width: "100%", height: "auto" }}
                   autoPlay
                   loop
-                  muted
+                  controls
+                  muted={false}
                   playsInline
                   style={{ width: "100%", height: "auto" }}
                 >
@@ -811,7 +819,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {quickActions.map((item, idx) => {
-              const Icon = item.icon
+              const Icon = item.icon;
               return (
                 <div
                   key={item.title}
@@ -837,7 +845,7 @@ export default function Home() {
                     {item.link.startsWith("http") ? "Chat Now →" : "Browse →"}
                   </Link>
                 </div>
-              )
+              );
             })}
           </div>
         </div>
@@ -867,23 +875,39 @@ export default function Home() {
               <p className="text-foreground/70 italic mb-4">
                 G.N. Homeo Clinic – Trusted for 35+ Years
                 <br />
-                <span className="text-sm">जी.एन. होम्योपैथिक क्लिनिक – 35+ वर्षों का भरोसा</span>
+                <span className="text-sm">
+                  जी.एन. होम्योपैथिक क्लिनिक – 35+ वर्षों का भरोसा
+                </span>
               </p>
               <div className="space-y-4 text-foreground/80">
                 <p>
-                  <span className="font-semibold text-foreground">Homeopathic Consultant & General Physician</span>
+                  <span className="font-semibold text-foreground">
+                    Homeopathic Consultant & General Physician
+                  </span>
                   <br />
-                  <span className="text-sm">होम्योपैथिक सलाहकार एवं सामान्य चिकित्सक</span>
+                  <span className="text-sm">
+                    होम्योपैथिक सलाहकार एवं सामान्य चिकित्सक
+                  </span>
                 </p>
                 <p>
-                  With 35 years of dedicated experience in homeopathy, Dr. M.H. Rizwi has helped thousands of patients achieve natural healing and lasting wellness through compassionate care.
+                  With 35 years of dedicated experience in homeopathy, Dr. M.H.
+                  Rizwi has helped thousands of patients achieve natural healing
+                  and lasting wellness through compassionate care.
                   <br />
-                  <span className="text-sm">35 वर्षों के अनुभव के साथ, डॉ. रिज़वी ने हजारों मरीजों को प्राकृतिक उपचार और दीर्घकालिक स्वास्थ्य प्राप्त करने में मदद की है।</span>
+                  <span className="text-sm">
+                    35 वर्षों के अनुभव के साथ, डॉ. रिज़वी ने हजारों मरीजों को
+                    प्राकृतिक उपचार और दीर्घकालिक स्वास्थ्य प्राप्त करने में मदद
+                    की है।
+                  </span>
                 </p>
                 <p>
-                  His patient-first philosophy ensures every consultation is thorough, personalized, and focused on the root cause.
+                  His patient-first philosophy ensures every consultation is
+                  thorough, personalized, and focused on the root cause.
                   <br />
-                  <span className="text-sm">उनकी रोगी-प्रथम सोच सुनिश्चित करती है कि हर परामर्श पूरी तरह से व्यक्तिगत और जड़ कारण पर केंद्रित हो।</span>
+                  <span className="text-sm">
+                    उनकी रोगी-प्रथम सोच सुनिश्चित करती है कि हर परामर्श पूरी तरह
+                    से व्यक्तिगत और जड़ कारण पर केंद्रित हो।
+                  </span>
                 </p>
 
                 {/* Doctor Responsibilities */}
@@ -891,15 +915,48 @@ export default function Home() {
                   <p className="font-semibold text-foreground mb-2">
                     <strong>Doctor’s Roles & Responsibilities:</strong>
                     <br />
-                    <span className="text-sm">डॉक्टर की भूमिकाएँ और जिम्मेदारियां:</span>
+                    <span className="text-sm">
+                      डॉक्टर की भूमिकाएँ और जिम्मेदारियां:
+                    </span>
                   </p>
                   <ul className="text-sm space-y-2 bg-primary/10 p-4 rounded-lg border border-primary/20">
-                    <li>✓ Patient Diagnosis & Case Analysis <br /><span className="text-xs">रोगी निदान और केस विश्लेषण</span></li>
-                    <li>✓ Personalized Homeopathic Treatment Planning <br /><span className="text-xs">व्यक्तिगत होम्योपैथिक उपचार योजना बनाना</span></li>
-                    <li>✓ Monitoring and Adjusting Prescriptions <br /><span className="text-xs">प्रिस्क्रिप्शन की निगरानी और समायोजन</span></li>
-                    <li>✓ Educating Patients on Preventive Healthcare <br /><span className="text-xs">रोगियों को रोकथाम स्वास्थ्य देखभाल के बारे में शिक्षित करना</span></li>
-                    <li>✓ Overseeing Clinical Procedures & Quality Care <br /><span className="text-xs">क्लिनिकल प्रक्रियाओं और गुणवत्ता देखभाल की निगरानी</span></li>
-                    <li>✓ Guiding Staff on Medical Protocols <br /><span className="text-xs">स्टाफ को चिकित्सा प्रोटोकॉल पर मार्गदर्शन देना</span></li>
+                    <li>
+                      ✓ Patient Diagnosis & Case Analysis <br />
+                      <span className="text-xs">
+                        रोगी निदान और केस विश्लेषण
+                      </span>
+                    </li>
+                    <li>
+                      ✓ Personalized Homeopathic Treatment Planning <br />
+                      <span className="text-xs">
+                        व्यक्तिगत होम्योपैथिक उपचार योजना बनाना
+                      </span>
+                    </li>
+                    <li>
+                      ✓ Monitoring and Adjusting Prescriptions <br />
+                      <span className="text-xs">
+                        प्रिस्क्रिप्शन की निगरानी और समायोजन
+                      </span>
+                    </li>
+                    <li>
+                      ✓ Educating Patients on Preventive Healthcare <br />
+                      <span className="text-xs">
+                        रोगियों को रोकथाम स्वास्थ्य देखभाल के बारे में शिक्षित
+                        करना
+                      </span>
+                    </li>
+                    <li>
+                      ✓ Overseeing Clinical Procedures & Quality Care <br />
+                      <span className="text-xs">
+                        क्लिनिकल प्रक्रियाओं और गुणवत्ता देखभाल की निगरानी
+                      </span>
+                    </li>
+                    <li>
+                      ✓ Guiding Staff on Medical Protocols <br />
+                      <span className="text-xs">
+                        स्टाफ को चिकित्सा प्रोटोकॉल पर मार्गदर्शन देना
+                      </span>
+                    </li>
                   </ul>
                 </div>
               </div>
@@ -933,12 +990,20 @@ export default function Home() {
                 <p>
                   Experience: 5 Years in Homeopathic Domain
                   <br />
-                  <span className="text-sm">अनुभव: होम्योपैथिक क्षेत्र में 5 वर्ष</span>
+                  <span className="text-sm">
+                    अनुभव: होम्योपैथिक क्षेत्र में 5 वर्ष
+                  </span>
                 </p>
                 <p>
-                  As the Managing Consultant at G.N. Homeo Clinic, Mr. Saquelain Raza oversees the complete operational, administrative, and patient management processes of the clinic.
+                  As the Managing Consultant at G.N. Homeo Clinic, Mr. Saquelain
+                  Raza oversees the complete operational, administrative, and
+                  patient management processes of the clinic.
                   <br />
-                  <span className="text-sm">जी.एन. होम्योपैथिक क्लिनिक में प्रबंध सलाहकार के रूप में, श्री साक़ेलैन रज़ा क्लिनिक के सभी संचालन, प्रशासनिक और रोगी प्रबंधन प्रक्रियाओं की निगरानी करते हैं।</span>
+                  <span className="text-sm">
+                    जी.एन. होम्योपैथिक क्लिनिक में प्रबंध सलाहकार के रूप में,
+                    श्री साक़ेलैन रज़ा क्लिनिक के सभी संचालन, प्रशासनिक और रोगी
+                    प्रबंधन प्रक्रियाओं की निगरानी करते हैं।
+                  </span>
                 </p>
 
                 {/* Managing Consultant Responsibilities */}
@@ -949,12 +1014,34 @@ export default function Home() {
                     <span className="text-sm">मुख्य जिम्मेदारियां:</span>
                   </p>
                   <ul className="text-sm space-y-2 bg-primary/10 p-4 rounded-lg border border-primary/20">
-                    <li>✓ Operational Management <br /><span className="text-xs">संचालन प्रबंधन</span></li>
-                    <li>✓ Patient Care Coordination <br /><span className="text-xs">रोगी देखभाल समन्वय</span></li>
-                    <li>✓ Administrative Oversight <br /><span className="text-xs">प्रशासनिक निगरानी</span></li>
-                    <li>✓ Staff Training & Development <br /><span className="text-xs">स्टाफ प्रशिक्षण और विकास</span></li>
-                    <li>✓ Regulatory Compliance & Reporting <br /><span className="text-xs">नियामक अनुपालन और रिपोर्टिंग</span></li>
-                    <li>✓ Clinic Efficiency & Quality Assurance <br /><span className="text-xs">क्लिनिक दक्षता और गुणवत्ता आश्वासन</span></li>
+                    <li>
+                      ✓ Operational Management <br />
+                      <span className="text-xs">संचालन प्रबंधन</span>
+                    </li>
+                    <li>
+                      ✓ Patient Care Coordination <br />
+                      <span className="text-xs">रोगी देखभाल समन्वय</span>
+                    </li>
+                    <li>
+                      ✓ Administrative Oversight <br />
+                      <span className="text-xs">प्रशासनिक निगरानी</span>
+                    </li>
+                    <li>
+                      ✓ Staff Training & Development <br />
+                      <span className="text-xs">स्टाफ प्रशिक्षण और विकास</span>
+                    </li>
+                    <li>
+                      ✓ Regulatory Compliance & Reporting <br />
+                      <span className="text-xs">
+                        नियामक अनुपालन और रिपोर्टिंग
+                      </span>
+                    </li>
+                    <li>
+                      ✓ Clinic Efficiency & Quality Assurance <br />
+                      <span className="text-xs">
+                        क्लिनिक दक्षता और गुणवत्ता आश्वासन
+                      </span>
+                    </li>
                   </ul>
                 </div>
               </div>
@@ -1011,17 +1098,26 @@ export default function Home() {
           <h2 className="text-3xl font-bold mb-4">
             Ready to Start Your Healing Journey?
             <br />
-            <span className="text-sm">क्या आप अपने उपचार की यात्रा शुरू करने के लिए तैयार हैं?</span>
+            <span className="text-sm">
+              क्या आप अपने उपचार की यात्रा शुरू करने के लिए तैयार हैं?
+            </span>
           </h2>
           <p className="text-lg opacity-90 mb-4 max-w-2xl mx-auto">
-            Get a free consultation with <strong>Dr. M.H. Rizwi</strong> today. Choose your preferred method of communication.
+            Get a free consultation with <strong>Dr. M.H. Rizwi</strong> today.
+            Choose your preferred method of communication.
             <br />
-            <span className="text-sm">आज ही डॉ. एम.एच. रिज़वी के साथ मुफ्त परामर्श प्राप्त करें। अपनी पसंद का संचार माध्यम चुनें।</span>
+            <span className="text-sm">
+              आज ही डॉ. एम.एच. रिज़वी के साथ मुफ्त परामर्श प्राप्त करें। अपनी
+              पसंद का संचार माध्यम चुनें।
+            </span>
           </p>
           <p className="text-sm opacity-80 mb-8">
             Trusted by 10,000+ patients • 35 years of excellence in homeopathy
             <br />
-            <span className="text-xs">10,000+ मरीजों द्वारा भरोसा • होम्योपैथी में 35 वर्षों की उत्कृष्टता</span>
+            <span className="text-xs">
+              10,000+ मरीजों द्वारा भरोसा • होम्योपैथी में 35 वर्षों की
+              उत्कृष्टता
+            </span>
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
@@ -1046,7 +1142,5 @@ export default function Home() {
         </div>
       </section>
     </main>
-  )
+  );
 }
-
-

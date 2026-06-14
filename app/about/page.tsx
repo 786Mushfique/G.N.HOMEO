@@ -325,12 +325,13 @@ export default function About() {
       <section className="py-16 px-4 bg-background">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <div className="bg-primary/20 rounded-lg h-80 flex items-center justify-center animate-slide-in-left">
+            <div className="w-[600px] h-[330px] rounded-xl overflow-hidden shadow-xl border-4 border-primary/30">
               <video
-                src="/images/gnmvideo00.mp4"
-                autoPlay
+                src="/images/gn1.mp4"
+                // autoPlay
                 loop
-                muted
+                controls
+                muted={false}
                 playsInline
                 style={{ width: "100%", height: "auto" }}
               >
