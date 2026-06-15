@@ -794,17 +794,17 @@ export default function Home() {
             <div className="hidden md:flex justify-center animate-slide-in-right">
               <div className="w-[600px] h-[330px] rounded-xl overflow-hidden shadow-xl border-4 border-primary/30">
                 <video
-                  src="/images/gn2.mp4"
-                  // controls
-                  // muted={false}
-                  // playsInline
-                  // style={{ width: "100%", height: "auto" }}
-                  autoPlay
-                  loop
+                  src="/images/gn2.mp4" // Path to your video in public folder
                   controls
                   muted={false}
                   playsInline
                   style={{ width: "100%", height: "auto" }}
+                  // autoPlay
+                  // loop
+                  // controls
+                  // muted={false}
+                  // playsInline
+                  // style={{ width: "100%", height: "auto" }}
                 >
                   Your browser does not support the video tag.
                 </video>
