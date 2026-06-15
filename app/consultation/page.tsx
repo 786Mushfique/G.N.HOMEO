@@ -652,39 +652,72 @@
 //   );
 // }
 
-"use client";
+"use client"
 
-import type React from "react";
-import { useState } from "react";
-import {
-  Video,
-  MessageCircle,
-  Phone,
-  Clock,
-  CheckCircle,
-  MapPin,
-  CalendarCheck,
-} from "lucide-react";
-import { submitConsultation } from "@/app/actions/consultation";
+import type React from "react"
+import { useState } from "react"
+import { Video, MessageCircle, Phone, Clock, CheckCircle, MapPin } from "lucide-react"
+import { submitConsultation } from "@/app/actions/consultation"
 
 export default function Consultation() {
-  const [selectedMode, setSelectedMode] = useState<string | null>(null);
+  const [selectedMode, setSelectedMode] = useState<string | null>(null)
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     phone: "",
     issue: "",
     preferredTime: "",
-  });
-  const [submitted, setSubmitted] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
+  })
+  const [submitted, setSubmitted] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
 
   const consultationModes = [
-    { id: "video", title: "Video Call", hindi: "वीडियो कॉल" },
-    { id: "chat", title: "Chat Consultation", hindi: "चैट परामर्श" },
-    { id: "phone", title: "Phone Call", hindi: "फोन कॉल" },
-    { id: "clinic", title: "Visit Clinic", hindi: "क्लिनिक जाएं" },
-  ];
+    {
+      id: "video",
+      icon: Video,
+      title: "Video Call",
+      description: "Face-to-face consultation via video call",
+      duration: "30-45 minutes",
+      benefits: ["Personal interaction", "Visual assessment", "Real-time discussion"],
+      action: () =>
+        window.open(
+          "https://wa.me/919608628633?text=I%20would%20like%20to%20book%20a%20video%20call%20consultation",
+          "_blank",
+        ),
+    },
+    {
+      id: "chat",
+      icon: MessageCircle,
+      title: "Chat Consultation",
+      description: "Text-based consultation for quick queries",
+      duration: "Flexible",
+      benefits: ["Convenient", "No time pressure", "Written record"],
+      action: () =>
+        window.open("https://wa.me/919608628633?text=I%20would%20like%20to%20book%20a%20chat%20consultation", "_blank"),
+    },
+    {
+      id: "phone",
+      icon: Phone,
+      title: "Phone Call",
+      description: "Direct phone consultation with the doctor",
+      duration: "20-30 minutes",
+      benefits: ["Personal touch", "Quick resolution", "Immediate advice"],
+      action: () =>
+        window.open(
+          "https://wa.me/919608628633?text=I%20would%20like%20to%20book%20a%20phone%20call%20consultation",
+          "_blank",
+        ),
+    },
+    {
+      id: "clinic",
+      icon: MapPin,
+      title: "Visit Clinic",
+      description: "In-person consultation at our clinic",
+      duration: "30-45 minutes",
+      benefits: ["Direct examination", "Immediate treatment", "Personal care"],
+      action: () => window.open("https://www.google.com/maps/search/?api=1&query=25.7710094,87.4683081", "_blank"),
+    },
+  ]
 
   const timings = [
     "11:00 AM - 12:00 PM",
@@ -694,11 +727,11 @@ export default function Consultation() {
     "5:00 PM - 6:00 PM",
     "6:00 PM - 7:00 PM",
     "7:00 PM - 8:00 PM",
-  ];
+  ]
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsLoading(true);
+    e.preventDefault()
+    setIsLoading(true)
 
     try {
       const result = await submitConsultation({
@@ -708,160 +741,272 @@ export default function Consultation() {
         issue: formData.issue,
         preferredMode: selectedMode || "Not specified",
         preferredTime: formData.preferredTime,
-      });
+      })
 
       if (result.success) {
-        setSubmitted(true);
+        setSubmitted(true)
         setTimeout(() => {
-          setSubmitted(false);
-          setFormData({
-            name: "",
-            email: "",
-            phone: "",
-            issue: "",
-            preferredTime: "",
-          });
-          setSelectedMode(null);
-        }, 3000);
+          setSubmitted(false)
+          setFormData({ name: "", email: "", phone: "", issue: "", preferredTime: "" })
+          setSelectedMode(null)
+        }, 3000)
       }
-    } catch {
-      setSubmitted(true);
+    } catch (error) {
+      console.error("[v0] Form submission error:", error)
+      setSubmitted(true)
+      setTimeout(() => {
+        setSubmitted(false)
+      }, 3000)
     } finally {
-      setIsLoading(false);
+      setIsLoading(false)
     }
-  };
+  }
 
   return (
-    <main className="bg-[#F5FCF9]">
-      {/* HEADER */}
-      <section className="bg-gradient-to-r from-[#34D1B8] to-[#34D1B8] text-white py-14">
-        <div className="text-center">
-          <CalendarCheck size={60} className="mx-auto mb-4 opacity-90" />
-          <h1 className="text-4xl font-bold">Free Consultation</h1>
-          <p className="mt-2">
-            Schedule your free consultation with Dr. M.H. Rizwi today <br />
-            <span className="text-sm opacity-90">
-              आज ही डॉ. एम.एच. रिज़वी के साथ अपनी मुफ्त परामर्श निर्धारित करें
-            </span>
-          </p>
+    <main>
+      {/* Header */}
+      <section className="bg-gradient-to-br from-primary/10 to-secondary/10 py-12 px-4 animate-fade-in-up">
+        <div className="max-w-7xl mx-auto">
+          <h1 className="text-4xl font-bold text-foreground mb-4">Free Consultation</h1>
+          <p className="text-lg text-foreground/80">Schedule your free consultation with Dr. M.H. Rizwi today</p>
         </div>
       </section>
 
-      {/* FORM */}
-      <section className="py-16 px-5 bg-white">
-        <div className="max-w-3xl mx-auto bg-[#F9FFFC] border border-green-100 rounded-xl p-8 shadow-md">
-          <h2 className="text-2xl font-bold text-center mb-6 text-gray-800">
-            Book Your Consultation <br />
-            <span className="text-sm text-gray-600">अपनी परामर्श बुक करें</span>
+      {/* Consultation Modes */}
+      <section className="py-16 px-4 bg-background">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-3xl font-bold text-foreground mb-12 text-center animate-fade-in-up">
+            Choose Your Consultation Mode
           </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+            {consultationModes.map((mode, idx) => {
+              const Icon = mode.icon
+              const isSelected = selectedMode === mode.id
+              return (
+                <button
+                  key={mode.id}
+                  onClick={() => {
+                    setSelectedMode(mode.id)
+                    setTimeout(() => mode.action(), 300)
+                  }}
+                  className={`text-left p-6 rounded-lg border-2 transition-all animate-scale-in hover:shadow-lg ${
+                    isSelected
+                      ? "border-primary bg-primary/5 shadow-lg"
+                      : "border-border bg-card hover:border-primary/50"
+                  }`}
+                  style={{ animationDelay: `${idx * 0.1}s` }}
+                >
+                  <Icon
+                    className={`mb-4 transition-colors ${isSelected ? "text-primary" : "text-foreground/60"}`}
+                    size={32}
+                  />
+                  <h3 className="text-xl font-bold text-foreground mb-2">{mode.title}</h3>
+                  <p className="text-sm text-foreground/70 mb-4">{mode.description}</p>
+                  <div className="flex items-center gap-2 text-sm text-foreground/60 mb-4">
+                    <Clock size={16} />
+                    <span>{mode.duration}</span>
+                  </div>
+                  <div className="space-y-2">
+                    {mode.benefits.map((benefit, idx) => (
+                      <div key={idx} className="flex items-center gap-2 text-sm">
+                        <CheckCircle size={14} className="text-primary" />
+                        <span className="text-foreground/80">{benefit}</span>
+                      </div>
+                    ))}
+                  </div>
+                </button>
+              )
+            })}
+          </div>
+        </div>
+      </section>
 
-          {submitted ? (
-            <div className="text-center py-10">
-              <CheckCircle size={60} className="text-green-600 mx-auto" />
-              <h3 className="text-xl font-semibold mt-4">
-                Consultation Booked!
-              </h3>
-              <p className="text-sm text-gray-600 mt-1">
-                आपकी परामर्श बुक हो गई है!
-              </p>
-            </div>
-          ) : (
-            <form onSubmit={handleSubmit} className="space-y-4">
-              {["name", "email", "phone"].map((field) => (
-                <input
-                  key={field}
-                  type={field === "email" ? "email" : "text"}
-                  placeholder={field}
-                  required
-                  className="w-full border border-gray-200 p-3 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-green-400"
-                  value={(formData as any)[field]}
-                  onChange={(e) =>
-                    setFormData({ ...formData, [field]: e.target.value })
-                  }
-                />
-              ))}
+      {/* Booking Form */}
+      <section className="py-16 px-4 bg-primary/5">
+        <div className="max-w-2xl mx-auto">
+          <div className="bg-card border border-border rounded-lg p-8 animate-fade-in-up shadow-lg">
+            <h2 className="text-2xl font-bold text-foreground mb-6">Book Your Consultation</h2>
 
-              <textarea
-                placeholder="Describe your health concern..."
-                required
-                className="w-full border border-gray-200 p-3 rounded-lg text-sm h-28 focus:outline-none focus:ring-2 focus:ring-green-400"
-                value={formData.issue}
-                onChange={(e) =>
-                  setFormData({ ...formData, issue: e.target.value })
-                }
-              />
-
-              {/* ✅ ADDED CONSULTATION MODE INSIDE FORM */}
-              <div>
-                <label className="block text-sm font-semibold text-foreground mb-2">
-                  Preferred Mode *
-                </label>
-                <div className="space-y-2">
-                  {consultationModes.map((mode) => (
-                    <label
-                      key={mode.id}
-                      className="flex items-center gap-3 p-3 border border-border rounded-lg cursor-pointer hover:bg-primary/5 transition-colors"
+            {submitted ? (
+              <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 animate-fade-in">
+                <div className="bg-card border border-border rounded-lg p-8 max-w-md w-full mx-4 animate-scale-in shadow-2xl">
+                  <div className="text-center">
+                    <CheckCircle className="text-primary mx-auto mb-4 animate-glow" size={64} />
+                    <h3 className="text-2xl font-bold text-foreground mb-2">Consultation Booked!</h3>
+                    <p className="text-foreground/80 mb-4">
+                      Your consultation request has been submitted successfully.
+                    </p>
+                    <p className="text-sm text-foreground/70 mb-6">
+                      Dr. M.H. Rizwi will contact you shortly via email and WhatsApp at {formData.phone}.
+                    </p>
+                    <button
+                      onClick={() => {
+                        setSubmitted(false)
+                        setFormData({ name: "", email: "", phone: "", issue: "", preferredTime: "" })
+                        setSelectedMode(null)
+                      }}
+                      className="w-full bg-primary text-primary-foreground py-2 rounded-lg hover:opacity-90 transition-all font-semibold"
                     >
-                      <input
-                        type="radio"
-                        name="mode"
-                        value={mode.id}
-                        checked={selectedMode === mode.id}
-                        onChange={(e) => setSelectedMode(e.target.value)}
-                        required
-                        className="w-4 h-4"
-                      />
-                      <span className="font-medium text-foreground">
-                        {mode.title} <span className="text-sm text-gray-500">({mode.hindi})</span>
-                      </span>
-                    </label>
-                  ))}
+                      Close
+                    </button>
+                  </div>
                 </div>
               </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="space-y-6">
+                {/* Name */}
+                <div>
+                  <label className="block text-sm font-semibold text-foreground mb-2">Full Name *</label>
+                  <input
+                    type="text"
+                    required
+                    value={formData.name}
+                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                    className="w-full px-4 py-2 border border-border rounded-lg bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary transition-all"
+                    placeholder="Your name"
+                  />
+                </div>
 
-              <select
-                required
-                className="w-full border border-gray-200 p-3 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-green-400"
-                value={formData.preferredTime}
-                onChange={(e) =>
-                  setFormData({ ...formData, preferredTime: e.target.value })
-                }
-              >
-                <option value="">Select a time slot</option>
-                {timings.map((t) => (
-                  <option key={t}>{t}</option>
-                ))}
-              </select>
+                {/* Email */}
+                <div>
+                  <label className="block text-sm font-semibold text-foreground mb-2">Email Address *</label>
+                  <input
+                    type="email"
+                    required
+                    value={formData.email}
+                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    className="w-full px-4 py-2 border border-border rounded-lg bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary transition-all"
+                    placeholder="your@email.com"
+                  />
+                </div>
 
-              <button
-                disabled={isLoading}
-                className="w-full bg-[#34D1B8] text-white py-3 rounded-lg font-semibold hover:opacity-90 transition-all"
-              >
-                {isLoading ? "Submitting..." : "Request Consultation"}
-              </button>
-            </form>
-          )}
+                {/* Phone */}
+                <div>
+                  <label className="block text-sm font-semibold text-foreground mb-2">Phone Number *</label>
+                  <input
+                    type="tel"
+                    required
+                    value={formData.phone}
+                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                    className="w-full px-4 py-2 border border-border rounded-lg bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary transition-all"
+                    placeholder="+91 9608628633"
+                  />
+                </div>
+
+                {/* Health Issue */}
+                <div>
+                  <label className="block text-sm font-semibold text-foreground mb-2">Health Issue/Concern *</label>
+                  <textarea
+                    required
+                    value={formData.issue}
+                    onChange={(e) => setFormData({ ...formData, issue: e.target.value })}
+                    className="w-full px-4 py-2 border border-border rounded-lg bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary resize-none transition-all"
+                    rows={4}
+                    placeholder="Describe your health concern..."
+                  />
+                </div>
+
+                {/* Consultation Mode */}
+                <div>
+                  <label className="block text-sm font-semibold text-foreground mb-2">Preferred Mode *</label>
+                  <div className="space-y-2">
+                    {consultationModes.map((mode) => (
+                      <label
+                        key={mode.id}
+                        className="flex items-center gap-3 p-3 border border-border rounded-lg cursor-pointer hover:bg-primary/5 transition-colors"
+                      >
+                        <input
+                          type="radio"
+                          name="mode"
+                          value={mode.id}
+                          checked={selectedMode === mode.id}
+                          onChange={(e) => setSelectedMode(e.target.value)}
+                          required
+                          className="w-4 h-4"
+                        />
+                        <span className="font-medium text-foreground">{mode.title}</span>
+                      </label>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Preferred Time */}
+                <div>
+                  <label className="block text-sm font-semibold text-foreground mb-2">Preferred Time Slot *</label>
+                  <select
+                    required
+                    value={formData.preferredTime}
+                    onChange={(e) => setFormData({ ...formData, preferredTime: e.target.value })}
+                    className="w-full px-4 py-2 border border-border rounded-lg bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary transition-all"
+                  >
+                    <option value="">Select a time slot</option>
+                    {timings.map((time) => (
+                      <option key={time} value={time}>
+                        {time}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+
+                {/* Submit Button */}
+                <button
+                  type="submit"
+                  disabled={isLoading}
+                  className="w-full bg-primary text-primary-foreground py-3 rounded-lg hover:opacity-90 transition-all font-semibold hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  {isLoading ? "Submitting..." : "Request Consultation"}
+                </button>
+
+                <p className="text-xs text-foreground/60 text-center">
+                  By submitting, you agree to be contacted by G.N.Homeo Clinic via email and WhatsApp
+                </p>
+              </form>
+            )}
+          </div>
         </div>
       </section>
 
-      {/* ✅ ADDED WHATSAPP CTA AFTER FORM */}
-      <section className="py-16 px-4 bg-[#34D1B8] text-white animate-fade-in-up">
+      {/* Clinic Hours */}
+      <section className="py-16 px-4 bg-background">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-3xl font-bold text-foreground mb-12 text-center animate-fade-in-up">Clinic Hours</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {[
+              { day: "Monday - Thursday", time: "11:00 AM – 8:00 PM" },
+              { day: "Friday", time: "2:00 PM – 8:00 PM" },
+              { day: "Sunday", time: "4:00 PM – 8:00 PM" },
+            ].map((item, idx) => (
+              <div
+                key={item.day}
+                className="bg-card border border-border rounded-lg p-6 text-center animate-scale-in hover:shadow-lg transition-all"
+                style={{ animationDelay: `${idx * 0.1}s` }}
+              >
+                <h3 className="font-bold text-lg text-foreground mb-2">{item.day}</h3>
+                <p className="text-2xl font-bold text-primary">{item.time}</p>
+              </div>
+            ))}
+          </div>
+          <p className="text-center text-foreground/70 mt-6">Closed on Saturdays</p>
+        </div>
+      </section>
+
+      {/* WhatsApp CTA */}
+      <section className="py-16 px-4 bg-primary text-primary-foreground animate-fade-in-up">
         <div className="max-w-7xl mx-auto text-center">
           <h2 className="text-3xl font-bold mb-4">Need Immediate Assistance?</h2>
-          <p className="text-lg opacity-90 mb-8">
-            Connect with Dr. M.H. Rizwi directly via WhatsApp
-          </p>
+          <p className="text-lg opacity-90 mb-8">Connect with Dr. M.H. Rizwi directly via WhatsApp</p>
           <a
             href="https://wa.me/919608628633"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block bg-white text-[#2AB09E] px-6 py-3 rounded-lg hover:opacity-90 transition-all font-semibold hover:shadow-lg"
+            className="inline-block bg-primary-foreground text-primary px-6 py-3 rounded-lg hover:opacity-90 transition-all font-semibold hover:shadow-lg"
           >
-            💬 Chat on WhatsApp
+            Chat on WhatsApp
           </a>
         </div>
       </section>
     </main>
-  );
+  )
 }
+
 
