@@ -168,6 +168,8 @@
 
 "use client"
 import { useState, useRef, useEffect } from "react"
+import type React from "react"
+
 import { X, Send, MessageCircle } from "lucide-react"
 
 interface Message {
@@ -205,14 +207,18 @@ export default function Chatbot() {
       const response = await fetch("/api/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ messages: [...messages, userMessage] }),
+        body: JSON.stringify({
+          messages: [...messages, userMessage],
+        }),
       })
+
+      if (!response.ok) throw new Error("Failed to get response")
 
       const data = await response.json()
       const assistantMessage: Message = {
         id: (Date.now() + 1).toString(),
         role: "assistant",
-        content: data.content || "Sorry, I couldn’t get a response from the AI.",
+        content: data.content,
       }
 
       setMessages((prev) => [...prev, assistantMessage])
@@ -221,8 +227,7 @@ export default function Chatbot() {
       const errorMessage: Message = {
         id: (Date.now() + 1).toString(),
         role: "assistant",
-        content:
-          "Sorry, I encountered an error. Please try again or contact us on WhatsApp: +919608628633",
+        content: "Sorry, I encountered an error. Please try again or contact us on WhatsApp: +919608628633",
       }
       setMessages((prev) => [...prev, errorMessage])
     } finally {
@@ -235,7 +240,8 @@ export default function Chatbot() {
       {!isOpen && (
         <button
           onClick={() => setIsOpen(true)}
-          className="fixed bottom-6 right-6 bg-[#1ECCB0] text-white rounded-full p-4 shadow-lg hover:shadow-xl transition-all hover:scale-110 z-40 animate-bounce"
+          className="fixed bottom-6 right-6 text-white rounded-full p-4 shadow-lg hover:shadow-xl transition-all hover:scale-110 z-40 animate-bounce"
+          style={{ backgroundColor: '#800000' }}
           aria-label="Open chat"
         >
           <MessageCircle size={24} />
@@ -245,7 +251,7 @@ export default function Chatbot() {
       {isOpen && (
         <div className="fixed bottom-6 right-6 w-96 max-w-[calc(100vw-2rem)] bg-white border border-gray-200 rounded-lg shadow-2xl flex flex-col z-50 animate-scale-in max-h-[600px]">
           {/* Header */}
-          <div className="bg-[#1ECCB0] text-white p-4 rounded-t-lg flex justify-between items-center">
+          <div className="text-white p-4 rounded-t-lg flex justify-between items-center" style={{ backgroundColor: '#800000' }}>
             <div>
               <h3 className="font-bold">G.N.Homeo Clinic</h3>
               <p className="text-xs opacity-90">Ask us anything about homeopathy</p>
@@ -263,24 +269,20 @@ export default function Chatbot() {
           <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-gray-50">
             {messages.length === 0 ? (
               <div className="text-center text-gray-600 py-8">
-                <MessageCircle className="mx-auto mb-2 text-[#1ECCB0]" size={32} />
+                <MessageCircle className="mx-auto mb-2" size={32} style={{ color: '#800000' }} />
                 <p className="text-sm font-medium">Hi! How can we help you?</p>
-                <p className="text-xs mt-2 text-gray-500">
-                  Ask about our services, medicines, or book a consultation
-                </p>
+                <p className="text-xs mt-2 text-gray-500">Ask about our services, medicines, or book a consultation</p>
               </div>
             ) : (
               messages.map((message) => (
-                <div
-                  key={message.id}
-                  className={`flex ${message.role === "user" ? "justify-end" : "justify-start"}`}
-                >
+                <div key={message.id} className={`flex ${message.role === "user" ? "justify-end" : "justify-start"}`}>
                   <div
                     className={`max-w-xs px-4 py-2 rounded-lg ${
                       message.role === "user"
-                        ? "bg-[#1ECCB0] text-white rounded-br-none"
+                        ? "text-white rounded-br-none"
                         : "bg-gray-200 text-gray-900 rounded-bl-none"
                     }`}
+                    style={message.role === "user" ? { backgroundColor: '#800000' } : {}}
                   >
                     <p className="text-sm whitespace-pre-wrap">{message.content}</p>
                   </div>
@@ -316,12 +318,13 @@ export default function Chatbot() {
                 type="text"
                 placeholder="Type your message..."
                 disabled={isLoading}
-                className="flex-1 px-3 py-2 border border-gray-300 rounded-lg bg-white text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#1ECCB0] disabled:opacity-50"
+                className="flex-1 px-3 py-2 border border-gray-300 rounded-lg bg-white text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#800000] disabled:opacity-50"
               />
               <button
                 type="submit"
                 disabled={isLoading}
-                className="bg-[#1ECCB0] text-white p-2 rounded-lg hover:opacity-90 transition-all disabled:opacity-50"
+                className="text-white p-2 rounded-lg hover:opacity-90 transition-all disabled:opacity-50"
+                style={{ backgroundColor: '#800000' }}
                 aria-label="Send message"
               >
                 <Send size={20} />

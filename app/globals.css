@@ -1,111 +1,145 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
-/* Removed invalid @custom-variant syntax that was causing the error */
+/* ========================================
+   MEDICAL PREMIUM THEME
+   ======================================== */
 
 :root {
-  /* Black background with Maroon, Yellow, White accents */
-  --background: #000000;
-  --foreground: #ffffff;
-  --card: #1a1a1a;
-  --card-foreground: #ffffff;
-  --popover: #1a1a1a;
-  --popover-foreground: #ffffff;
-  --primary: #800000;
+  --background: #f4f8f8;
+  --foreground: #1f2937;
+
+  --card: #ffffff;
+  --card-foreground: #1f2937;
+
+  --popover: #ffffff;
+  --popover-foreground: #1f2937;
+
+  --primary: #6f8d9d;
   --primary-foreground: #ffffff;
-  --secondary: #fbbf24;
-  --secondary-foreground: #000000;
-  --muted: #404040;
-  --muted-foreground: #a3a3a3;
-  --accent: #fbbf24;
-  --accent-foreground: #000000;
-  --destructive: #800000;
+
+  --secondary: #dde9ee;
+  --secondary-foreground: #4f6b79;
+
+  --muted: #eef4f6;
+  --muted-foreground: #6b7280;
+
+  --accent: #7f9aa8;
+  --accent-foreground: #ffffff;
+
+  --destructive: #dc2626;
   --destructive-foreground: #ffffff;
-  --border: #262626;
-  --input: #1a1a1a;
-  --ring: #fbbf24;
-  --chart-1: #800000;
-  --chart-2: #fbbf24;
-  --chart-3: #ffffff;
-  --chart-4: #660000;
-  --chart-5: #78350f;
-  --radius: 0.5rem;
-  --sidebar: #1a1a1a;
-  --sidebar-foreground: #ffffff;
-  --sidebar-primary: #800000;
+
+  --border: #d6e1e6;
+  --input: #ffffff;
+  --ring: #6f8d9d;
+
+  --chart-1: #6f8d9d;
+  --chart-2: #4f6b79;
+  --chart-3: #a8c0cc;
+  --chart-4: #d5e4ea;
+  --chart-5: #8aa3b0;
+
+  --radius: 1rem;
+
+  --sidebar: #ffffff;
+  --sidebar-foreground: #1f2937;
+  --sidebar-primary: #6f8d9d;
   --sidebar-primary-foreground: #ffffff;
-  --sidebar-accent: #fbbf24;
-  --sidebar-accent-foreground: #000000;
-  --sidebar-border: #262626;
-  --sidebar-ring: #fbbf24;
+  --sidebar-accent: #dde9ee;
+  --sidebar-accent-foreground: #4f6b79;
+  --sidebar-border: #d6e1e6;
+  --sidebar-ring: #6f8d9d;
 }
 
 .dark {
-  --background: #000000;
-  --foreground: #ffffff;
-  --card: #1a1a1a;
-  --card-foreground: #ffffff;
-  --popover: #1a1a1a;
-  --popover-foreground: #ffffff;
-  --primary: #800000;
+  --background: #0f1720;
+  --foreground: #f8fafc;
+
+  --card: #17212b;
+  --card-foreground: #f8fafc;
+
+  --popover: #17212b;
+  --popover-foreground: #f8fafc;
+
+  --primary: #89a5b3;
   --primary-foreground: #ffffff;
-  --secondary: #fbbf24;
-  --secondary-foreground: #000000;
-  --muted: #404040;
-  --muted-foreground: #a3a3a3;
-  --accent: #fbbf24;
-  --accent-foreground: #000000;
-  --destructive: #800000;
+
+  --secondary: #22313d;
+  --secondary-foreground: #dbe7ec;
+
+  --muted: #1a2732;
+  --muted-foreground: #9ca3af;
+
+  --accent: #6f8d9d;
+  --accent-foreground: #ffffff;
+
+  --destructive: #ef4444;
   --destructive-foreground: #ffffff;
-  --border: #262626;
-  --input: #1a1a1a;
-  --ring: #fbbf24;
-  --chart-1: #800000;
-  --chart-2: #fbbf24;
-  --chart-3: #ffffff;
-  --chart-4: #660000;
-  --chart-5: #78350f;
-  --sidebar: #1a1a1a;
-  --sidebar-foreground: #ffffff;
-  --sidebar-primary: #800000;
+
+  --border: #263746;
+  --input: #17212b;
+  --ring: #89a5b3;
+
+  --chart-1: #89a5b3;
+  --chart-2: #6f8d9d;
+  --chart-3: #dbe7ec;
+  --chart-4: #4f6b79;
+  --chart-5: #c7d7de;
+
+  --sidebar: #17212b;
+  --sidebar-foreground: #f8fafc;
+  --sidebar-primary: #89a5b3;
   --sidebar-primary-foreground: #ffffff;
-  --sidebar-accent: #fbbf24;
-  --sidebar-accent-foreground: #000000;
-  --sidebar-border: #262626;
-  --sidebar-ring: #fbbf24;
+  --sidebar-accent: #22313d;
+  --sidebar-accent-foreground: #dbe7ec;
+  --sidebar-border: #263746;
+  --sidebar-ring: #89a5b3;
 }
 
 @theme inline {
   --font-sans: "Geist", "Geist Fallback";
   --font-mono: "Geist Mono", "Geist Mono Fallback";
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+
   --color-card: var(--card);
   --color-card-foreground: var(--card-foreground);
+
   --color-popover: var(--popover);
   --color-popover-foreground: var(--popover-foreground);
+
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
+
   --color-secondary: var(--secondary);
   --color-secondary-foreground: var(--secondary-foreground);
+
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
+
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
+
   --color-destructive: var(--destructive);
   --color-destructive-foreground: var(--destructive-foreground);
+
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
+
   --color-chart-1: var(--chart-1);
   --color-chart-2: var(--chart-2);
   --color-chart-3: var(--chart-3);
   --color-chart-4: var(--chart-4);
   --color-chart-5: var(--chart-5);
+
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+
   --color-sidebar: var(--sidebar);
   --color-sidebar-foreground: var(--sidebar-foreground);
   --color-sidebar-primary: var(--sidebar-primary);
@@ -120,17 +154,76 @@
   * {
     @apply border-border outline-ring/50;
   }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    overflow-x: hidden;
   }
 }
 
-/* Add smooth animations for polished, award-like feel */
 @layer utilities {
+
+  .hero-gradient {
+    background: linear-gradient(
+      135deg,
+      #f4f8f8 0%,
+      #eef4f6 30%,
+      #dde9ee 100%
+    );
+  }
+
+  .section-gradient {
+    background: linear-gradient(
+      to bottom,
+      #ffffff,
+      #f4f8f8
+    );
+  }
+
+  .premium-button {
+    background: linear-gradient(
+      135deg,
+      #6f8d9d,
+      #4f6b79
+    );
+    color: white;
+    transition: all 0.3s ease;
+  }
+
+  .premium-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 25px rgba(79, 107, 121, 0.2);
+  }
+
+  .glass-card {
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(214, 225, 230, 0.8);
+    box-shadow: 0 10px 30px rgba(79, 107, 121, 0.08);
+  }
+
+  .medical-card {
+    background: white;
+    border: 1px solid #d6e1e6;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+  }
+
+  .medical-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px rgba(79, 107, 121, 0.12);
+  }
+
   @keyframes fadeInUp {
     from {
       opacity: 0;
-      transform: translateY(20px);
+      transform: translateY(30px);
     }
     to {
       opacity: 1;
@@ -141,7 +234,7 @@
   @keyframes slideInLeft {
     from {
       opacity: 0;
-      transform: translateX(-20px);
+      transform: translateX(-30px);
     }
     to {
       opacity: 1;
@@ -152,7 +245,7 @@
   @keyframes slideInRight {
     from {
       opacity: 0;
-      transform: translateX(20px);
+      transform: translateX(30px);
     }
     to {
       opacity: 1;
@@ -163,7 +256,7 @@
   @keyframes scaleIn {
     from {
       opacity: 0;
-      transform: scale(0.95);
+      transform: scale(.95);
     }
     to {
       opacity: 1;
@@ -171,49 +264,49 @@
     }
   }
 
-  /* Updated glow animation to use maroon color */
   @keyframes glow {
     0%,
     100% {
-      box-shadow: 0 0 20px rgba(128, 0, 0, 0.3);
+      box-shadow: 0 0 20px rgba(111, 141, 157, 0.2);
     }
+
     50% {
-      box-shadow: 0 0 30px rgba(128, 0, 0, 0.5);
+      box-shadow: 0 0 40px rgba(111, 141, 157, 0.35);
     }
   }
 
-  /* Added fade-in animation for modal backdrop */
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0px);
     }
-    to {
-      opacity: 1;
+
+    50% {
+      transform: translateY(-10px);
     }
   }
 
   .animate-fade-in-up {
-    animation: fadeInUp 0.6s ease-out;
+    animation: fadeInUp .7s ease-out;
   }
 
   .animate-slide-in-left {
-    animation: slideInLeft 0.6s ease-out;
+    animation: slideInLeft .7s ease-out;
   }
 
   .animate-slide-in-right {
-    animation: slideInRight 0.6s ease-out;
+    animation: slideInRight .7s ease-out;
   }
 
   .animate-scale-in {
-    animation: scaleIn 0.5s ease-out;
-  }
-
-  /* Added fade-in utility class for modal backdrop */
-  .animate-fade-in {
-    animation: fadeIn 0.3s ease-out;
+    animation: scaleIn .6s ease-out;
   }
 
   .animate-glow {
-    animation: glow 2s ease-in-out infinite;
+    animation: glow 3s ease-in-out infinite;
+  }
+
+  .animate-float {
+    animation: float 4s ease-in-out infinite;
   }
 }
