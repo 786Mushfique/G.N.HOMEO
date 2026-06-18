@@ -678,12 +678,336 @@
 // }
 
 
-"use client"
+// "use client"
 
-import type React from "react"
-import { useState } from "react"
-import { Mail, Phone, MapPin, Clock, Send, CheckCircle, ChevronDown, ChevronUp } from "lucide-react"
-import { submitContact } from "@/app/actions/contact"
+// import type React from "react"
+// import { useState } from "react"
+// import { Mail, Phone, MapPin, Clock, Send, CheckCircle, ChevronDown, ChevronUp } from "lucide-react"
+// import { submitContact } from "@/app/actions/contact"
+
+// export default function Contact() {
+//   const [formData, setFormData] = useState({
+//     name: "",
+//     email: "",
+//     phone: "",
+//     subject: "",
+//     message: "",
+//   })
+//   const [submitted, setSubmitted] = useState(false)
+//   const [isLoading, setIsLoading] = useState(false)
+//   const [openFAQ, setOpenFAQ] = useState<number | null>(null)
+
+//   const handleSubmit = async (e: React.FormEvent) => {
+//     e.preventDefault()
+//     setIsLoading(true)
+
+//     await submitContact(formData)
+
+//     setSubmitted(true)
+//     setTimeout(() => {
+//       setSubmitted(false)
+//       setFormData({ name: "", email: "", phone: "", subject: "", message: "" })
+//       setIsLoading(false)
+//     }, 4000)
+//   }
+
+//   const faqs = [
+//     {
+//       question: "Is consultation really free?",
+//       questionHindi: "क्या परामर्श वास्तव में मुफ्त है?",
+//       answer:
+//         "Yes, the initial consultation is completely free. This allows you to discuss your health concerns with Dr. M.H. Rizwi without any obligation.",
+//       answerHindi: "हाँ, प्रारंभिक परामर्श पूरी तरह से मुफ्त है। इससे आप डॉ. एम.एच. रिज़वी के साथ अपनी स्वास्थ्य समस्याओं पर बिना किसी प्रतिबद्धता के चर्चा कर सकते हैं।"
+//     },
+//     {
+//       question: "How long does a consultation take?",
+//       questionHindi: "परामर्श में कितना समय लगता है?",
+//       answer: "Typically 30-45 minutes for video calls, 20-30 minutes for phone calls, and flexible for chat consultations depending on your queries.",
+//       answerHindi: "सामान्यतः वीडियो कॉल के लिए 30-45 मिनट, फोन कॉल के लिए 20-30 मिनट, और चैट परामर्श के लिए आपकी क्वेरी के अनुसार लचीलापन।"
+//     },
+//     {
+//       question: "Do you offer online consultations?",
+//       questionHindi: "क्या आप ऑनलाइन परामर्श प्रदान करते हैं?",
+//       answer: "Yes, we offer video calls, phone calls, and chat consultations. Choose the mode that works best for you.",
+//       answerHindi: "हाँ, हम वीडियो कॉल, फोन कॉल और चैट परामर्श प्रदान करते हैं। अपनी सुविधा के अनुसार चुनें।"
+//     },
+//     {
+//       question: "What if I need follow-up consultations?",
+//       questionHindi: "यदि मुझे फॉलो-अप परामर्श की आवश्यकता है तो क्या करें?",
+//       answer: "Follow-up consultations are available at affordable rates. Dr. M.H. Rizwi will recommend the frequency based on your condition.",
+//       answerHindi: "फॉलो-अप परामर्श किफ़ायती दरों पर उपलब्ध हैं। डॉ. एम.एच. रिज़वी आपकी स्थिति के अनुसार आवृत्ति की सिफारिश करेंगे।"
+//     },
+//     {
+//       question: "Are medicines available online?",
+//       questionHindi: "क्या दवाइयाँ ऑनलाइन उपलब्ध हैं?",
+//       answer: "Currently, medicines are available at the clinic. You can contact us for delivery options in your area.",
+//       answerHindi: "वर्तमान में, दवाइयाँ क्लिनिक में उपलब्ध हैं। अपने क्षेत्र में डिलीवरी विकल्पों के लिए हमसे संपर्क करें।"
+//     },
+//     {
+//       question: "What payment methods do you accept?",
+//       questionHindi: "आप किन भुगतान विधियों को स्वीकार करते हैं?",
+//       answer: "We accept cash, online transfers, and digital payment methods. Payment details will be provided during consultation booking.",
+//       answerHindi: "हम नकद, ऑनलाइन ट्रांसफर और डिजिटल भुगतान विधियाँ स्वीकार करते हैं। भुगतान विवरण परामर्श बुकिंग के दौरान प्रदान किया जाएगा।"
+//     }
+//   ]
+
+//   return (
+//     <main className="font-sans text-foreground">
+//       {/* Success Modal */}
+//       {submitted && (
+//         <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4 animate-fade-in">
+//           <div className="bg-card border border-border rounded-lg p-8 max-w-md w-full shadow-2xl animate-scale-in">
+//             <div className="flex justify-center mb-4">
+//               <CheckCircle className="text-primary animate-bounce" size={64} />
+//             </div>
+//             <h2 className="text-2xl font-bold text-center mb-2">
+//               Message Sent Successfully! <br />
+//               <span className="text-sm">संदेश सफलतापूर्वक भेजा गया!</span>
+//             </h2>
+//             <p className="text-foreground/80 text-center mb-6 text-sm">
+//               Thank you for reaching out. We'll get back to you as soon as possible. <br />
+//               <span>संपर्क करने के लिए धन्यवाद। हम जल्द ही आपसे संपर्क करेंगे।</span>
+//             </p>
+//             <button
+//               onClick={() => setSubmitted(false)}
+//               className="w-full bg-primary text-primary-foreground py-2 rounded-lg hover:opacity-90 transition-opacity font-semibold"
+//             >
+//               Close <br />
+//               <span className="text-sm">बंद करें</span>
+//             </button>
+//           </div>
+//         </div>
+//       )}
+
+//       {/* Header */}
+//       <section className="bg-gradient-to-br from-primary/10 to-secondary/10 py-12 px-4">
+//         <div className="max-w-7xl mx-auto text-center">
+//           <h1 className="text-4xl font-bold text-foreground mb-4">
+//             Contact Us <br />
+//             <span className="text-sm">संपर्क करें</span>
+//           </h1>
+//           <p className="text-lg text-foreground/80">
+//             Get in touch with G.N.Homeo Clinic <br />
+//             <span className="text-sm">G.N. होम्योपैथिक क्लिनिक से संपर्क करें</span>
+//           </p>
+//         </div>
+//       </section>
+
+//       {/* Contact Info Cards (Flipping) */}
+//       <section className="py-16 px-4 bg-background">
+//         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+//           {/* Phone Card */}
+//           <div className="relative">
+//             <div className="group perspective">
+//               <div className="card-3d relative w-full h-56 transition-transform duration-700 transform-style-preserve-3d group-hover:rotate-y-180">
+//                 {/* Front */}
+//                 <div className="card-face card-front absolute inset-0 bg-card border border-border rounded-lg p-8 flex flex-col items-center justify-center">
+//                   <Phone className="text-primary mb-4 animate-pulse" size={32} />
+//                   <h3 className="text-xl font-bold mb-2">Phone <br /><span className="text-sm">फोन</span></h3>
+//                   <a href="tel:+919608628633" className="text-foreground/80 hover:text-primary transition-colors">+91 9608628633</a>
+//                   <p className="text-sm text-foreground/70 mt-3">Available during clinic hours <br /><span className="text-xs">क्लिनिक के समय उपलब्ध</span></p>
+//                 </div>
+
+//                 {/* Back */}
+//                 <div className="card-face card-back absolute inset-0 bg-primary text-primary-foreground rounded-lg p-8 flex flex-col items-center justify-center rotate-y-180 backface-hidden">
+//                   <a href="tel:+919608628633" className="text-2xl font-bold">+91 9608628633</a>
+//                   <p className="mt-2 text-sm">फोन नंबर</p>
+//                 </div>
+//               </div>
+//             </div>
+//           </div>
+
+//           {/* Email Card */}
+//           <div className="relative">
+//             <div className="group perspective">
+//               <div className="card-3d relative w-full h-56 transition-transform duration-700 transform-style-preserve-3d group-hover:rotate-y-180">
+//                 {/* Front */}
+//                 <div className="card-face card-front absolute inset-0 bg-card border border-border rounded-lg p-8 flex flex-col items-center justify-center">
+//                   <Mail className="text-primary mb-4 animate-pulse" size={32} />
+//                   <h3 className="text-xl font-bold mb-2">Email <br /><span className="text-sm">ईमेल</span></h3>
+//                   <a href="mailto:gnn.homeo@gmail.com" className="text-foreground/80 hover:text-primary transition-colors">gnn.homeo@gmail.com</a>
+//                   <p className="text-sm text-foreground/70 mt-3">We'll respond within 24 hours <br /><span className="text-xs">हम 24 घंटे के भीतर जवाब देंगे</span></p>
+//                 </div>
+
+//                 {/* Back */}
+//                 <div className="card-face card-back absolute inset-0 bg-primary text-primary-foreground rounded-lg p-8 flex flex-col items-center justify-center rotate-y-180 backface-hidden">
+//                   <a href="mailto:gnn.homeo@gmail.com" className="text-lg font-bold">gnn.homeo@gmail.com</a>
+//                   <p className="mt-2 text-sm">ईमेल</p>
+//                 </div>
+//               </div>
+//             </div>
+//           </div>
+
+//           {/* Address Card */}
+//           <div className="relative">
+//             <div className="group perspective">
+//               <div className="card-3d relative w-full h-56 transition-transform duration-700 transform-style-preserve-3d group-hover:rotate-y-180">
+//                 {/* Front */}
+//                 <div className="card-face card-front absolute inset-0 bg-card border border-border rounded-lg p-8 flex flex-col items-start justify-center">
+//                   <MapPin className="text-primary mb-4 animate-pulse" size={32} />
+//                   <h3 className="text-xl font-bold mb-2">Clinic Address <br /><span className="text-sm">क्लिनिक का पता</span></h3>
+//                   <a href="https://www.google.com/maps/search/?api=1&query=25.7710094,87.4683081" target="_blank" rel="noopener noreferrer" className="text-foreground/80 hover:text-primary transition-colors">
+//                     <p className="font-semibold mb-1">Club Market kachhari hata, Purnea</p>
+//                     <p className="text-sm">Near Dto Office, Commissioner Road</p>
+//                     <p className="text-sm">Court-854301</p>
+//                   </a>
+//                   <p className="text-sm text-foreground/70 ">Click to view on Google Maps <br /><span className="text-xs"></span></p>
+//                 </div>
+
+//                 {/* Back */}
+//                 <div className="card-face card-back absolute inset-0 bg-primary text-primary-foreground rounded-lg p-8 flex flex-col items-center justify-center rotate-y-180 backface-hidden text-center">
+//                   <p className="font-semibold text-lg">Club Market kachhari hata, Purnea</p>
+//                   <p className="text-sm mt-1">Near Dto Office, Commissioner Road</p>
+//                   <p className="text-sm mt-1">Court-854301</p>
+//                   <p className="mt-3 text-sm">क्लिनिक का पता</p>
+//                 </div>
+//               </div>
+//             </div>
+//           </div>
+
+//           {/* Clinic Hours Card */}
+//           <div className="relative">
+//             <div className="group perspective">
+//               <div className="card-3d relative w-full h-56 transition-transform duration-700 transform-style-preserve-3d group-hover:rotate-y-180">
+//                 {/* Front */}
+//                 <div className="card-face card-front absolute inset-0 bg-card border border-border rounded-lg p-8 flex flex-col items-start justify-center">
+//                   <Clock className="text-primary mb-4 animate-pulse" size={32} />
+//                   <h3 className="text-xl font-bold mb-2">Clinic Hours <br /><span className="text-sm">क्लिनिक समय</span></h3>
+//                   <div className="text-sm text-foreground/80 space-y-1">
+//                     <p>Mon-Sat: 11:00 AM – 8:00 PM <br /><span className="text-xs">सोम-शनि: 11:00 AM – 8:00 PM</span></p>
+//                     <p>Friday:<b>closed</b> <br /><span className="text-xs">शुक्रवार: <b>बंद</b></span></p>
+//                     <p>Sunday: 4:00 PM – 8:00 PM <br /><span className="text-xs">रविवार: 4:00 PM – 8:00 PM</span></p>
+//                   </div>
+//                 </div>
+
+//                 {/* Back */}
+//                 <div className="card-face card-back absolute inset-0 bg-primary text-primary-foreground rounded-lg p-8 flex flex-col items-center justify-center rotate-y-180 backface-hidden text-center">
+//                   <p className="text-2xl font-bold">Friday: CLOSED</p>
+//                   <p className="mt-2 text-sm">शुक्रवार: बंद</p>
+//                 </div>
+//               </div>
+//             </div>
+//           </div>
+
+//         </div>
+//       </section>
+
+//       {/* Contact Form & Map */}
+//       <section className="py-16 px-4 bg-primary/5">
+//         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12">
+//           {/* Form */}
+//           <div className="bg-card border border-border rounded-lg p-8 shadow-lg hover:shadow-2xl transition-shadow duration-300">
+//             <h2 className="text-2xl font-bold text-foreground mb-6">
+//               Send us a Message <br />
+//               <span className="text-sm">हमें संदेश भेजें</span>
+//             </h2>
+//             <form onSubmit={handleSubmit} className="space-y-4">
+//               {["name","email","phone","subject","message"].map((field,idx)=>(
+
+//                 <div key={idx}>
+//                   <label className="block text-sm font-semibold text-foreground mb-2">
+//                     {field==="name"?"Full Name *":field==="email"?"Email Address *":field==="phone"?"Phone Number":field==="subject"?"Subject *":"Message *"} <br />
+//                     <span className="text-xs">{field==="name"?"पूरा नाम *":field==="email"?"ईमेल पता *":field==="phone"?"फोन नंबर":field==="subject"?"विषय *":"संदेश *"}</span>
+//                   </label>
+//                   {field==="message"?
+//                   <textarea required value={formData[field as keyof typeof formData]} onChange={(e)=>setFormData({...formData,[field]:e.target.value})} rows={5} className="w-full px-4 py-2 border border-border rounded-lg bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary resize-none" placeholder="Your message..."/>:
+//                   <input type={field==="email"?"email":field==="phone"?"tel":"text"} required={field!=="phone"} value={formData[field as keyof typeof formData]} onChange={(e)=>setFormData({...formData,[field]:e.target.value})} className="w-full px-4 py-2 border border-border rounded-lg bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary" placeholder={field}/>}
+
+//                 </div>
+//               ))}
+//               <button type="submit" disabled={isLoading} className="w-full bg-primary text-primary-foreground py-3 rounded-lg hover:opacity-90 transition-opacity font-semibold flex items-center justify-center gap-2 disabled:opacity-50">
+//                 <Send size={18}/>
+//                 {isLoading?"Sending...":"Send Message"} <br />
+//                 <span className="text-sm">{isLoading?"भेज रहे हैं...":"संदेश भेजें"}</span>
+//               </button>
+//             </form>
+//           </div>
+
+//           {/* Map & Quick Links */}
+//           <div className="space-y-6">
+//             <div className="bg-card border border-border rounded-lg overflow-hidden h-80 shadow-lg">
+//               <iframe width="100%" height="100%" frameBorder="0" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3606.8234567890123!2d87.4683081!3d25.7710094!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f4e1234567890d%3A0x1234567890abcdef!2sMariam%20Nagar%2C%20Purnea%2C%20Near%20Dto%20Office%2C%20Commissioner%20Road%2C%20Court-854301!5e0!3m2!1sen!2sin!4v1234567890" loading="lazy" referrerPolicy="no-referrer-when-downgrade" />
+//             </div>
+
+//             <div className="bg-card border border-border rounded-lg p-6 shadow-lg">
+//               <h3 className="text-lg font-bold text-foreground mb-4">
+//                 Quick Links <br />
+//                 <span className="text-sm">त्वरित लिंक</span>
+//               </h3>
+//               <div className="space-y-3">
+//                 <a href="https://wa.me/919608628633" target="_blank" rel="noopener noreferrer" className="block p-3 bg-primary/10 text-primary rounded-lg hover:bg-primary/20 transition-colors font-semibold text-center">
+//                   Chat on WhatsApp <br />
+//                   <span className="text-sm">व्हाट्सएप पर चैट करें</span>
+//                 </a>
+//                 <a href="/consultation" className="block p-3 bg-primary/10 text-primary rounded-lg hover:bg-primary/20 transition-colors font-semibold text-center">
+//                   Book Consultation <br />
+//                   <span className="text-sm">सलाह बुक करें</span>
+//                 </a>
+//               </div>
+//             </div>
+//           </div>
+//         </div>
+//       </section>
+
+//       {/* FAQ Section */}
+//       <section className="py-16 px-4 bg-background">
+//         <div className="max-w-7xl mx-auto">
+//           <h2 className="text-3xl font-bold mb-12 text-center">
+//             Frequently Asked Questions <br />
+//             <span className="text-sm">अक्सर पूछे जाने वाले प्रश्न</span>
+//           </h2>
+//           <div className="space-y-4">
+//             {faqs.map((faq, idx)=>(
+
+//               <div key={idx} className="bg-card border border-border rounded-lg p-6 shadow-lg hover:shadow-2xl transition-all cursor-pointer" onClick={()=>setOpenFAQ(openFAQ===idx?null:idx)}>
+//                 <div className="flex justify-between items-center">
+//                   <h3 className="font-bold">{faq.question} <br /><span className="text-sm text-foreground/70">{faq.questionHindi}</span></h3>
+//                   {openFAQ===idx?<ChevronUp size={24}/>:<ChevronDown size={24}/>}
+//                 </div>
+//                 {openFAQ===idx && <p className="text-foreground/80 mt-3 text-sm">{faq.answer} <br /><span className="text-xs">{faq.answerHindi}</span></p>}
+//               </div>
+//             ))}
+//           </div>
+//         </div>
+//       </section>
+
+//       {/* Styles for 3D Flip (keeps Tailwind structure) */}
+//       <style>{`
+//         .perspective { perspective: 1000px; }
+//         .card-3d { transform-style: preserve-3d; }
+//         .card-face { backface-visibility: hidden; -webkit-backface-visibility: hidden; }
+//         .card-front { transform: rotateY(0deg); }
+//         .card-back { transform: rotateY(180deg); }
+//         .group-hover\\:rotate-y-180:hover { transform: rotateY(180deg); }
+//         /* Utility to apply rotate on parent (used above) */
+//         .group:hover .card-3d { transform: rotateY(180deg); }
+//         /* Ensure smoothness */
+//         .card-3d, .card-face { transition: transform 0.7s; }
+//       `}</style>
+//     </main>
+//   )
+// }
+
+"use client";
+
+import type React from "react";
+import { useState } from "react";
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Clock,
+  Send,
+  CheckCircle,
+  ChevronDown,
+  ChevronUp,
+  Facebook,
+  Instagram,
+  Youtube,
+  AlertCircle,
+  Award,
+} from "lucide-react";
+import { submitContact } from "@/app/actions/contact";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -692,24 +1016,24 @@ export default function Contact() {
     phone: "",
     subject: "",
     message: "",
-  })
-  const [submitted, setSubmitted] = useState(false)
-  const [isLoading, setIsLoading] = useState(false)
-  const [openFAQ, setOpenFAQ] = useState<number | null>(null)
+  });
+  const [submitted, setSubmitted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [openFAQ, setOpenFAQ] = useState<number | null>(null);
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsLoading(true)
+    e.preventDefault();
+    setIsLoading(true);
 
-    await submitContact(formData)
+    await submitContact(formData);
 
-    setSubmitted(true)
+    setSubmitted(true);
     setTimeout(() => {
-      setSubmitted(false)
-      setFormData({ name: "", email: "", phone: "", subject: "", message: "" })
-      setIsLoading(false)
-    }, 4000)
-  }
+      setSubmitted(false);
+      setFormData({ name: "", email: "", phone: "", subject: "", message: "" });
+      setIsLoading(false);
+    }, 4000);
+  };
 
   const faqs = [
     {
@@ -717,233 +1041,445 @@ export default function Contact() {
       questionHindi: "क्या परामर्श वास्तव में मुफ्त है?",
       answer:
         "Yes, the initial consultation is completely free. This allows you to discuss your health concerns with Dr. M.H. Rizwi without any obligation.",
-      answerHindi: "हाँ, प्रारंभिक परामर्श पूरी तरह से मुफ्त है। इससे आप डॉ. एम.एच. रिज़वी के साथ अपनी स्वास्थ्य समस्याओं पर बिना किसी प्रतिबद्धता के चर्चा कर सकते हैं।"
+      answerHindi:
+        "हाँ, प्रारंभिक परामर्श पूरी तरह से मुफ्त है। इससे आप डॉ. एम.एच. रिज़वी के साथ अपनी स्वास्थ्य समस्याओं पर बिना किसी प्रतिबद्धता के चर्चा कर सकते हैं।",
     },
     {
       question: "How long does a consultation take?",
       questionHindi: "परामर्श में कितना समय लगता है?",
-      answer: "Typically 30-45 minutes for video calls, 20-30 minutes for phone calls, and flexible for chat consultations depending on your queries.",
-      answerHindi: "सामान्यतः वीडियो कॉल के लिए 30-45 मिनट, फोन कॉल के लिए 20-30 मिनट, और चैट परामर्श के लिए आपकी क्वेरी के अनुसार लचीलापन।"
+      answer:
+        "Typically 30-45 minutes for video calls, 20-30 minutes for phone calls, and flexible for chat consultations depending on your queries.",
+      answerHindi:
+        "सामान्यतः वीडियो कॉल के लिए 30-45 मिनट, फोन कॉल के लिए 20-30 मिनट, और चैट परामर्श के लिए आपकी क्वेरी के अनुसार लचीलापन।",
     },
     {
       question: "Do you offer online consultations?",
       questionHindi: "क्या आप ऑनलाइन परामर्श प्रदान करते हैं?",
       answer: "Yes, we offer video calls, phone calls, and chat consultations. Choose the mode that works best for you.",
-      answerHindi: "हाँ, हम वीडियो कॉल, फोन कॉल और चैट परामर्श प्रदान करते हैं। अपनी सुविधा के अनुसार चुनें।"
+      answerHindi: "हाँ, हम वीडियो कॉल, फोन कॉल और चैट परामर्श प्रदान करते हैं। अपनी सुविधा के अनुसार चुनें।",
     },
     {
-      question: "What if I need follow-up consultations?",
-      questionHindi: "यदि मुझे फॉलो-अप परामर्श की आवश्यकता है तो क्या करें?",
-      answer: "Follow-up consultations are available at affordable rates. Dr. M.H. Rizwi will recommend the frequency based on your condition.",
-      answerHindi: "फॉलो-अप परामर्श किफ़ायती दरों पर उपलब्ध हैं। डॉ. एम.एच. रिज़वी आपकी स्थिति के अनुसार आवृत्ति की सिफारिश करेंगे।"
+      question: "What if I need follow‑up consultations?",
+      questionHindi: "यदि मुझे फॉलो‑अप परामर्श की आवश्यकता है तो क्या करें?",
+      answer:
+        "Follow‑up consultations are available at affordable rates. Dr. M.H. Rizwi will recommend the frequency based on your condition.",
+      answerHindi:
+        "फॉलो‑अप परामर्श किफ़ायती दरों पर उपलब्ध हैं। डॉ. एम.एच. रिज़वी आपकी स्थिति के अनुसार आवृत्ति की सिफारिश करेंगे।",
     },
     {
       question: "Are medicines available online?",
       questionHindi: "क्या दवाइयाँ ऑनलाइन उपलब्ध हैं?",
-      answer: "Currently, medicines are available at the clinic. You can contact us for delivery options in your area.",
-      answerHindi: "वर्तमान में, दवाइयाँ क्लिनिक में उपलब्ध हैं। अपने क्षेत्र में डिलीवरी विकल्पों के लिए हमसे संपर्क करें।"
+      answer:
+        "Currently, medicines are available at the clinic. You can contact us for delivery options in your area.",
+      answerHindi: "वर्तमान में, दवाइयाँ क्लिनिक में उपलब्ध हैं। अपने क्षेत्र में डिलीवरी विकल्पों के लिए हमसे संपर्क करें।",
     },
     {
       question: "What payment methods do you accept?",
       questionHindi: "आप किन भुगतान विधियों को स्वीकार करते हैं?",
-      answer: "We accept cash, online transfers, and digital payment methods. Payment details will be provided during consultation booking.",
-      answerHindi: "हम नकद, ऑनलाइन ट्रांसफर और डिजिटल भुगतान विधियाँ स्वीकार करते हैं। भुगतान विवरण परामर्श बुकिंग के दौरान प्रदान किया जाएगा।"
-    }
-  ]
+      answer:
+        "We accept cash, online transfers, and digital payment methods. Payment details will be provided during consultation booking.",
+      answerHindi:
+        "हम नकद, ऑनलाइन ट्रांसफर और डिजिटल भुगतान विधियाँ स्वीकार करते हैं। भुगतान विवरण परामर्श बुकिंग के दौरान प्रदान किया जाएगा।",
+    },
+  ];
 
   return (
-    <main className="font-sans text-foreground">
+    <main className="min-h-screen bg-background">
       {/* Success Modal */}
       {submitted && (
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4 animate-fade-in">
-          <div className="bg-card border border-border rounded-lg p-8 max-w-md w-full shadow-2xl animate-scale-in">
+          <div className="bg-card border border-border rounded-2xl p-8 max-w-md w-full shadow-2xl animate-scale-in">
             <div className="flex justify-center mb-4">
               <CheckCircle className="text-primary animate-bounce" size={64} />
             </div>
             <h2 className="text-2xl font-bold text-center mb-2">
-              Message Sent Successfully! <br />
-              <span className="text-sm">संदेश सफलतापूर्वक भेजा गया!</span>
+              Message Sent Successfully!
+              <br />
+              <span className="text-sm text-foreground/60">संदेश सफलतापूर्वक भेजा गया!</span>
             </h2>
             <p className="text-foreground/80 text-center mb-6 text-sm">
-              Thank you for reaching out. We'll get back to you as soon as possible. <br />
-              <span>संपर्क करने के लिए धन्यवाद। हम जल्द ही आपसे संपर्क करेंगे।</span>
+              Thank you for reaching out. We'll get back to you as soon as possible.
+              <br />
+              <span className="text-xs text-foreground/60">संपर्क करने के लिए धन्यवाद। हम जल्द ही आपसे संपर्क करेंगे।</span>
             </p>
             <button
               onClick={() => setSubmitted(false)}
-              className="w-full bg-primary text-primary-foreground py-2 rounded-lg hover:opacity-90 transition-opacity font-semibold"
+              className="w-full bg-primary text-primary-foreground py-2.5 rounded-xl hover:opacity-90 transition-opacity font-semibold"
             >
-              Close <br />
-              <span className="text-sm">बंद करें</span>
+              Close / बंद करें
             </button>
           </div>
         </div>
       )}
 
-      {/* Header */}
-      <section className="bg-gradient-to-br from-primary/10 to-secondary/10 py-12 px-4">
-        <div className="max-w-7xl mx-auto text-center">
-          <h1 className="text-4xl font-bold text-foreground mb-4">
-            Contact Us <br />
-            <span className="text-sm">संपर्क करें</span>
-          </h1>
-          <p className="text-lg text-foreground/80">
-            Get in touch with G.N.Homeo Clinic <br />
-            <span className="text-sm">G.N. होम्योपैथिक क्लिनिक से संपर्क करें</span>
-          </p>
+      {/* Hero with Banner Image */}
+      <section className="relative overflow-hidden py-20 px-4 flex items-center">
+        {/* Background Image */}
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20"
+          style={{
+            backgroundImage:
+              "url('https://i.pinimg.com/736x/b5/ab/91/b5ab91b0406b19f91ebe321f73198516.jpg')",
+          }}
+        />
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent" />
+        <div className="relative z-10 max-w-7xl mx-auto w-full">
+          <div className="max-w-2xl text-white">
+            <span className="inline-block bg-primary/80 text-white text-sm font-semibold px-4 py-1.5 rounded-full mb-4">
+              Get in Touch
+            </span>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 leading-tight">
+              Contact <span className="text-primary-foreground">Us</span>
+            </h1>
+            <p className="text-lg text-white/90 max-w-lg leading-relaxed">
+              We're here to help. Reach out for consultations, queries, or just to say hello.
+              <br />
+              <span className="text-sm text-white/70">
+                हम मदद के लिए यहाँ हैं। परामर्श, प्रश्नों या केवल नमस्ते कहने के लिए संपर्क करें।
+              </span>
+            </p>
+            <div className="mt-6 flex flex-wrap gap-4">
+              <a
+                href="https://wa.me/919608628633"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 bg-white text-primary px-6 py-3 rounded-full font-semibold hover:bg-white/90 transition-all shadow-lg"
+              >
+                <Phone size={18} />
+                WhatsApp
+              </a>
+              <a
+                href="#contact-form"
+                className="inline-flex items-center gap-2 border-2 border-white/60 text-white px-6 py-3 rounded-full font-semibold hover:bg-white/10 transition-all"
+              >
+                <Mail size={18} />
+                Email Us
+              </a>
+            </div>
+          </div>
         </div>
       </section>
 
       {/* Contact Info Cards (Flipping) */}
       <section className="py-16 px-4 bg-background">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {/* Phone Card */}
-          <div className="relative">
-            <div className="group perspective">
-              <div className="card-3d relative w-full h-56 transition-transform duration-700 transform-style-preserve-3d group-hover:rotate-y-180">
-                {/* Front */}
-                <div className="card-face card-front absolute inset-0 bg-card border border-border rounded-lg p-8 flex flex-col items-center justify-center">
-                  <Phone className="text-primary mb-4 animate-pulse" size={32} />
-                  <h3 className="text-xl font-bold mb-2">Phone <br /><span className="text-sm">फोन</span></h3>
-                  <a href="tel:+919608628633" className="text-foreground/80 hover:text-primary transition-colors">+91 9608628633</a>
-                  <p className="text-sm text-foreground/70 mt-3">Available during clinic hours <br /><span className="text-xs">क्लिनिक के समय उपलब्ध</span></p>
-                </div>
-
-                {/* Back */}
-                <div className="card-face card-back absolute inset-0 bg-primary text-primary-foreground rounded-lg p-8 flex flex-col items-center justify-center rotate-y-180 backface-hidden">
-                  <a href="tel:+919608628633" className="text-2xl font-bold">+91 9608628633</a>
-                  <p className="mt-2 text-sm">फोन नंबर</p>
-                </div>
-              </div>
-            </div>
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground">
+              How to <span className="text-primary">Reach Us</span>
+            </h2>
+            <p className="text-foreground/60 mt-2">Choose your preferred way to connect</p>
           </div>
-
-          {/* Email Card */}
-          <div className="relative">
-            <div className="group perspective">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {/* Phone Card */}
+            <div className="relative group perspective">
               <div className="card-3d relative w-full h-56 transition-transform duration-700 transform-style-preserve-3d group-hover:rotate-y-180">
-                {/* Front */}
-                <div className="card-face card-front absolute inset-0 bg-card border border-border rounded-lg p-8 flex flex-col items-center justify-center">
-                  <Mail className="text-primary mb-4 animate-pulse" size={32} />
-                  <h3 className="text-xl font-bold mb-2">Email <br /><span className="text-sm">ईमेल</span></h3>
-                  <a href="mailto:gnn.homeo@gmail.com" className="text-foreground/80 hover:text-primary transition-colors">gnn.homeo@gmail.com</a>
-                  <p className="text-sm text-foreground/70 mt-3">We'll respond within 24 hours <br /><span className="text-xs">हम 24 घंटे के भीतर जवाब देंगे</span></p>
-                </div>
-
-                {/* Back */}
-                <div className="card-face card-back absolute inset-0 bg-primary text-primary-foreground rounded-lg p-8 flex flex-col items-center justify-center rotate-y-180 backface-hidden">
-                  <a href="mailto:gnn.homeo@gmail.com" className="text-lg font-bold">gnn.homeo@gmail.com</a>
-                  <p className="mt-2 text-sm">ईमेल</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Address Card */}
-          <div className="relative">
-            <div className="group perspective">
-              <div className="card-3d relative w-full h-56 transition-transform duration-700 transform-style-preserve-3d group-hover:rotate-y-180">
-                {/* Front */}
-                <div className="card-face card-front absolute inset-0 bg-card border border-border rounded-lg p-8 flex flex-col items-start justify-center">
-                  <MapPin className="text-primary mb-4 animate-pulse" size={32} />
-                  <h3 className="text-xl font-bold mb-2">Clinic Address <br /><span className="text-sm">क्लिनिक का पता</span></h3>
-                  <a href="https://www.google.com/maps/search/?api=1&query=25.7710094,87.4683081" target="_blank" rel="noopener noreferrer" className="text-foreground/80 hover:text-primary transition-colors">
-                    <p className="font-semibold mb-1">Club Market kachhari hata, Purnea</p>
-                    <p className="text-sm">Near Dto Office, Commissioner Road</p>
-                    <p className="text-sm">Court-854301</p>
+                <div className="card-face card-front absolute inset-0 bg-card border border-border/60 rounded-2xl p-6 flex flex-col items-center justify-center shadow-sm hover:shadow-xl transition-shadow">
+                  <Phone className="text-primary mb-4" size={32} />
+                  <h3 className="text-xl font-bold mb-1">Phone</h3>
+                  <p className="text-sm text-foreground/50 mb-2">फोन</p>
+                  <a
+                    href="tel:+919608628633"
+                    className="text-foreground/80 hover:text-primary transition-colors"
+                  >
+                    +91 9608628633
                   </a>
-                  <p className="text-sm text-foreground/70 ">Click to view on Google Maps <br /><span className="text-xs"></span></p>
+                  <p className="text-xs text-foreground/60 mt-3">Available during clinic hours</p>
                 </div>
-
-                {/* Back */}
-                <div className="card-face card-back absolute inset-0 bg-primary text-primary-foreground rounded-lg p-8 flex flex-col items-center justify-center rotate-y-180 backface-hidden text-center">
-                  <p className="font-semibold text-lg">Club Market kachhari hata, Purnea</p>
-                  <p className="text-sm mt-1">Near Dto Office, Commissioner Road</p>
-                  <p className="text-sm mt-1">Court-854301</p>
-                  <p className="mt-3 text-sm">क्लिनिक का पता</p>
+                <div className="card-face card-back absolute inset-0 bg-primary text-primary-foreground rounded-2xl p-6 flex flex-col items-center justify-center rotate-y-180 backface-hidden">
+                  <a href="tel:+919608628633" className="text-2xl font-bold">
+                    +91 9608628633
+                  </a>
+                  <p className="mt-2 text-sm opacity-80">Call us now</p>
                 </div>
               </div>
             </div>
-          </div>
 
-          {/* Clinic Hours Card */}
-          <div className="relative">
-            <div className="group perspective">
+            {/* Email Card */}
+            <div className="relative group perspective">
               <div className="card-3d relative w-full h-56 transition-transform duration-700 transform-style-preserve-3d group-hover:rotate-y-180">
-                {/* Front */}
-                <div className="card-face card-front absolute inset-0 bg-card border border-border rounded-lg p-8 flex flex-col items-start justify-center">
-                  <Clock className="text-primary mb-4 animate-pulse" size={32} />
-                  <h3 className="text-xl font-bold mb-2">Clinic Hours <br /><span className="text-sm">क्लिनिक समय</span></h3>
+                <div className="card-face card-front absolute inset-0 bg-card border border-border/60 rounded-2xl p-6 flex flex-col items-center justify-center shadow-sm hover:shadow-xl transition-shadow">
+                  <Mail className="text-primary mb-4" size={32} />
+                  <h3 className="text-xl font-bold mb-1">Email</h3>
+                  <p className="text-sm text-foreground/50 mb-2">ईमेल</p>
+                  <a
+                    href="mailto:gnn.homeo@gmail.com"
+                    className="text-foreground/80 hover:text-primary transition-colors text-sm"
+                  >
+                    gnn.homeo@gmail.com
+                  </a>
+                  <p className="text-xs text-foreground/60 mt-3">We respond within 24 hrs</p>
+                </div>
+                <div className="card-face card-back absolute inset-0 bg-primary text-primary-foreground rounded-2xl p-6 flex flex-col items-center justify-center rotate-y-180 backface-hidden">
+                  <a href="mailto:gnn.homeo@gmail.com" className="text-xl font-bold">
+                    gnn.homeo@gmail.com
+                  </a>
+                  <p className="mt-2 text-sm opacity-80">Email us anytime</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Address Card */}
+            <div className="relative group perspective">
+              <div className="card-3d relative w-full h-56 transition-transform duration-700 transform-style-preserve-3d group-hover:rotate-y-180">
+                <div className="card-face card-front absolute inset-0 bg-card border border-border/60 rounded-2xl p-6 flex flex-col items-start justify-center shadow-sm hover:shadow-xl transition-shadow">
+                  <MapPin className="text-primary mb-3" size={32} />
+                  <h3 className="text-xl font-bold mb-1">Clinic Address</h3>
+                  <p className="text-sm text-foreground/50 mb-2">क्लिनिक का पता</p>
+                  <a
+                    href="https://www.google.com/maps/search/?api=1&query=25.7710094,87.4683081"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-foreground/80 hover:text-primary transition-colors text-sm"
+                  >
+                    <p>Club Market, Kachhari Hata, Purnea</p>
+                    <p>Near DTO Office, Commissioner Road</p>
+                    <p>Court-854301</p>
+                  </a>
+                  <p className="text-xs text-foreground/60 mt-2">Click to view on Google Maps</p>
+                </div>
+                <div className="card-face card-back absolute inset-0 bg-primary text-primary-foreground rounded-2xl p-6 flex flex-col items-center justify-center rotate-y-180 backface-hidden text-center">
+                  <p className="font-bold text-lg">Club Market, Kachhari Hata</p>
+                  <p className="text-sm opacity-90">Near DTO Office, Commissioner Road</p>
+                  <p className="text-sm opacity-90">Purnea, Court-854301</p>
+                  <p className="mt-3 text-sm opacity-80">📍 View on Maps</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Clinic Hours Card */}
+            <div className="relative group perspective">
+              <div className="card-3d relative w-full h-56 transition-transform duration-700 transform-style-preserve-3d group-hover:rotate-y-180">
+                <div className="card-face card-front absolute inset-0 bg-card border border-border/60 rounded-2xl p-6 flex flex-col items-start justify-center shadow-sm hover:shadow-xl transition-shadow">
+                  <Clock className="text-primary mb-3" size={32} />
+                  <h3 className="text-xl font-bold mb-1">Clinic Hours</h3>
+                  <p className="text-sm text-foreground/50 mb-2">क्लिनिक समय</p>
                   <div className="text-sm text-foreground/80 space-y-1">
-                    <p>Mon-Sat: 11:00 AM – 8:00 PM <br /><span className="text-xs">सोम-शनि: 11:00 AM – 8:00 PM</span></p>
-                    <p>Friday:<b>closed</b> <br /><span className="text-xs">शुक्रवार: <b>बंद</b></span></p>
-                    <p>Sunday: 4:00 PM – 8:00 PM <br /><span className="text-xs">रविवार: 4:00 PM – 8:00 PM</span></p>
+                    <p>Mon–Sat: 11:00 AM – 8:00 PM</p>
+                    <p className="text-rose-500 font-semibold">Friday: Closed</p>
+                    <p>Sunday: 4:00 PM – 8:00 PM</p>
                   </div>
                 </div>
-
-                {/* Back */}
-                <div className="card-face card-back absolute inset-0 bg-primary text-primary-foreground rounded-lg p-8 flex flex-col items-center justify-center rotate-y-180 backface-hidden text-center">
-                  <p className="text-2xl font-bold">Friday: CLOSED</p>
-                  <p className="mt-2 text-sm">शुक्रवार: बंद</p>
+                <div className="card-face card-back absolute inset-0 bg-primary text-primary-foreground rounded-2xl p-6 flex flex-col items-center justify-center rotate-y-180 backface-hidden text-center">
+                  <p className="text-3xl font-bold">Friday</p>
+                  <p className="text-xl font-bold mt-1">CLOSED</p>
+                  <p className="mt-3 text-sm opacity-80">शुक्रवार: बंद</p>
                 </div>
               </div>
             </div>
           </div>
+        </div>
+      </section>
 
+      {/* Emergency Contact Note */}
+      <section className="bg-amber-50 dark:bg-amber-950/20 border-y border-amber-200 dark:border-amber-800 py-4 px-4">
+        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="flex items-center gap-3">
+            <AlertCircle className="text-amber-600 dark:text-amber-400" size={24} />
+            <p className="text-amber-800 dark:text-amber-300 font-medium">
+              For emergencies outside clinic hours, please contact us on WhatsApp.
+              <span className="block text-sm font-normal opacity-80">
+                क्लिनिक समय के बाहर आपात स्थिति के लिए, कृपया हमें WhatsApp पर संपर्क करें।
+              </span>
+            </p>
+          </div>
+          <a
+            href="https://wa.me/919608628633"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 bg-amber-600 hover:bg-amber-700 text-white px-5 py-2 rounded-full font-semibold transition-colors shadow-sm flex-shrink-0"
+          >
+            <Phone size={16} />
+            Emergency WhatsApp
+          </a>
         </div>
       </section>
 
       {/* Contact Form & Map */}
-      <section className="py-16 px-4 bg-primary/5">
+      <section id="contact-form" className="py-16 px-4 bg-primary/5">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Form */}
-          <div className="bg-card border border-border rounded-lg p-8 shadow-lg hover:shadow-2xl transition-shadow duration-300">
-            <h2 className="text-2xl font-bold text-foreground mb-6">
-              Send us a Message <br />
-              <span className="text-sm">हमें संदेश भेजें</span>
+          <div className="bg-card border border-border/60 rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-shadow duration-300">
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6">
+              Send us a Message
+              <br />
+              <span className="text-sm text-foreground/50">हमें संदेश भेजें</span>
             </h2>
-            <form onSubmit={handleSubmit} className="space-y-4">
-              {["name","email","phone","subject","message"].map((field,idx)=>(
-
-                <div key={idx}>
-                  <label className="block text-sm font-semibold text-foreground mb-2">
-                    {field==="name"?"Full Name *":field==="email"?"Email Address *":field==="phone"?"Phone Number":field==="subject"?"Subject *":"Message *"} <br />
-                    <span className="text-xs">{field==="name"?"पूरा नाम *":field==="email"?"ईमेल पता *":field==="phone"?"फोन नंबर":field==="subject"?"विषय *":"संदेश *"}</span>
+            <form onSubmit={handleSubmit} className="space-y-5">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-sm font-semibold text-foreground mb-1.5">
+                    Full Name *
+                    <span className="block text-xs font-normal text-foreground/50">पूरा नाम *</span>
                   </label>
-                  {field==="message"?
-                  <textarea required value={formData[field as keyof typeof formData]} onChange={(e)=>setFormData({...formData,[field]:e.target.value})} rows={5} className="w-full px-4 py-2 border border-border rounded-lg bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary resize-none" placeholder="Your message..."/>:
-                  <input type={field==="email"?"email":field==="phone"?"tel":"text"} required={field!=="phone"} value={formData[field as keyof typeof formData]} onChange={(e)=>setFormData({...formData,[field]:e.target.value})} className="w-full px-4 py-2 border border-border rounded-lg bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary" placeholder={field}/>}
-
+                  <input
+                    type="text"
+                    required
+                    value={formData.name}
+                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                    className="w-full px-4 py-2.5 border border-border rounded-xl bg-background text-foreground placeholder:text-foreground/40 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all"
+                    placeholder="Your name"
+                  />
                 </div>
-              ))}
-              <button type="submit" disabled={isLoading} className="w-full bg-primary text-primary-foreground py-3 rounded-lg hover:opacity-90 transition-opacity font-semibold flex items-center justify-center gap-2 disabled:opacity-50">
-                <Send size={18}/>
-                {isLoading?"Sending...":"Send Message"} <br />
-                <span className="text-sm">{isLoading?"भेज रहे हैं...":"संदेश भेजें"}</span>
+                <div>
+                  <label className="block text-sm font-semibold text-foreground mb-1.5">
+                    Email Address *
+                    <span className="block text-xs font-normal text-foreground/50">ईमेल पता *</span>
+                  </label>
+                  <input
+                    type="email"
+                    required
+                    value={formData.email}
+                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    className="w-full px-4 py-2.5 border border-border rounded-xl bg-background text-foreground placeholder:text-foreground/40 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all"
+                    placeholder="your@email.com"
+                  />
+                </div>
+              </div>
+              <div>
+                <label className="block text-sm font-semibold text-foreground mb-1.5">
+                  Phone Number
+                  <span className="block text-xs font-normal text-foreground/50">फोन नंबर</span>
+                </label>
+                <input
+                  type="tel"
+                  value={formData.phone}
+                  onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                  className="w-full px-4 py-2.5 border border-border rounded-xl bg-background text-foreground placeholder:text-foreground/40 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all"
+                  placeholder="+91 9608628633"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-semibold text-foreground mb-1.5">
+                  Subject *
+                  <span className="block text-xs font-normal text-foreground/50">विषय *</span>
+                </label>
+                <input
+                  type="text"
+                  required
+                  value={formData.subject}
+                  onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
+                  className="w-full px-4 py-2.5 border border-border rounded-xl bg-background text-foreground placeholder:text-foreground/40 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all"
+                  placeholder="Brief subject"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-semibold text-foreground mb-1.5">
+                  Message *
+                  <span className="block text-xs font-normal text-foreground/50">संदेश *</span>
+                </label>
+                <textarea
+                  required
+                  value={formData.message}
+                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                  rows={5}
+                  className="w-full px-4 py-2.5 border border-border rounded-xl bg-background text-foreground placeholder:text-foreground/40 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary resize-none transition-all"
+                  placeholder="Describe your query or concern..."
+                />
+              </div>
+              <button
+                type="submit"
+                disabled={isLoading}
+                className="w-full flex items-center justify-center gap-2 bg-primary text-primary-foreground py-3 rounded-xl hover:opacity-90 transition-all font-semibold shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                <Send size={18} />
+                {isLoading ? "Sending..." : "Send Message"}
+                <span className="text-sm font-normal opacity-80">
+                  {isLoading ? "भेज रहे हैं..." : "संदेश भेजें"}
+                </span>
               </button>
             </form>
           </div>
 
           {/* Map & Quick Links */}
           <div className="space-y-6">
-            <div className="bg-card border border-border rounded-lg overflow-hidden h-80 shadow-lg">
-              <iframe width="100%" height="100%" frameBorder="0" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3606.8234567890123!2d87.4683081!3d25.7710094!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f4e1234567890d%3A0x1234567890abcdef!2sMariam%20Nagar%2C%20Purnea%2C%20Near%20Dto%20Office%2C%20Commissioner%20Road%2C%20Court-854301!5e0!3m2!1sen!2sin!4v1234567890" loading="lazy" referrerPolicy="no-referrer-when-downgrade" />
+            <div className="bg-card border border-border/60 rounded-2xl overflow-hidden h-80 shadow-lg">
+              <iframe
+                width="100%"
+                height="100%"
+                frameBorder="0"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3606.8234567890123!2d87.4683081!3d25.7710094!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f4e1234567890d%3A0x1234567890abcdef!2sMariam%20Nagar%2C%20Purnea%2C%20Near%20Dto%20Office%2C%20Commissioner%20Road%2C%20Court-854301!5e0!3m2!1sen!2sin!4v1234567890"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Clinic Location"
+              />
             </div>
 
-            <div className="bg-card border border-border rounded-lg p-6 shadow-lg">
+            <div className="bg-card border border-border/60 rounded-2xl p-6 shadow-lg">
               <h3 className="text-lg font-bold text-foreground mb-4">
-                Quick Links <br />
-                <span className="text-sm">त्वरित लिंक</span>
+                Quick Links
+                <br />
+                <span className="text-sm text-foreground/50">त्वरित लिंक</span>
               </h3>
               <div className="space-y-3">
-                <a href="https://wa.me/919608628633" target="_blank" rel="noopener noreferrer" className="block p-3 bg-primary/10 text-primary rounded-lg hover:bg-primary/20 transition-colors font-semibold text-center">
-                  Chat on WhatsApp <br />
-                  <span className="text-sm">व्हाट्सएप पर चैट करें</span>
+                <a
+                  href="https://wa.me/919608628633"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3 p-3 bg-primary/10 text-primary rounded-xl hover:bg-primary/20 transition-colors font-semibold"
+                >
+                  <Phone size={18} />
+                  <span>
+                    Chat on WhatsApp
+                    <br />
+                    <span className="text-xs font-normal text-foreground/60">व्हाट्सएप पर चैट करें</span>
+                  </span>
                 </a>
-                <a href="/consultation" className="block p-3 bg-primary/10 text-primary rounded-lg hover:bg-primary/20 transition-colors font-semibold text-center">
-                  Book Consultation <br />
-                  <span className="text-sm">सलाह बुक करें</span>
+                <a
+                  href="/consultation"
+                  className="flex items-center gap-3 p-3 bg-primary/10 text-primary rounded-xl hover:bg-primary/20 transition-colors font-semibold"
+                >
+                  <Award size={18} />
+                  <span>
+                    Book Consultation
+                    <br />
+                    <span className="text-xs font-normal text-foreground/60">सलाह बुक करें</span>
+                  </span>
                 </a>
               </div>
+            </div>
+
+            {/* Social Media */}
+            <div className="bg-card border border-border/60 rounded-2xl p-6 shadow-lg">
+              <h3 className="text-lg font-bold text-foreground mb-4">
+                Connect with Us
+                <br />
+                <span className="text-sm text-foreground/50">हमसे जुड़ें</span>
+              </h3>
+              <div className="flex gap-4">
+                <a
+                  href="#"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center hover:bg-primary/20 transition-colors"
+                  aria-label="Facebook"
+                >
+                  <Facebook size={20} className="text-primary" />
+                </a>
+                <a
+                  href="#"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center hover:bg-primary/20 transition-colors"
+                  aria-label="Instagram"
+                >
+                  <Instagram size={20} className="text-primary" />
+                </a>
+                <a
+                  href="#"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center hover:bg-primary/20 transition-colors"
+                  aria-label="YouTube"
+                >
+                  <Youtube size={20} className="text-primary" />
+                </a>
+              </div>
+              <p className="text-xs text-foreground/50 mt-3">
+                Follow us for health tips and updates.
+                <br />
+                <span className="text-[10px]">स्वास्थ्य टिप्स और अपडेट के लिए हमें फॉलो करें।</span>
+              </p>
             </div>
           </div>
         </div>
@@ -951,40 +1487,90 @@ export default function Contact() {
 
       {/* FAQ Section */}
       <section className="py-16 px-4 bg-background">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold mb-12 text-center">
-            Frequently Asked Questions <br />
-            <span className="text-sm">अक्सर पूछे जाने वाले प्रश्न</span>
-          </h2>
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground">
+              Frequently Asked <span className="text-primary">Questions</span>
+            </h2>
+            <p className="text-foreground/60 mt-2">अक्सर पूछे जाने वाले प्रश्न</p>
+          </div>
           <div className="space-y-4">
-            {faqs.map((faq, idx)=>(
-
-              <div key={idx} className="bg-card border border-border rounded-lg p-6 shadow-lg hover:shadow-2xl transition-all cursor-pointer" onClick={()=>setOpenFAQ(openFAQ===idx?null:idx)}>
-                <div className="flex justify-between items-center">
-                  <h3 className="font-bold">{faq.question} <br /><span className="text-sm text-foreground/70">{faq.questionHindi}</span></h3>
-                  {openFAQ===idx?<ChevronUp size={24}/>:<ChevronDown size={24}/>}
+            {faqs.map((faq, idx) => (
+              <div
+                key={idx}
+                className="bg-card border border-border/60 rounded-2xl p-6 shadow-sm hover:shadow-md transition-all cursor-pointer"
+                onClick={() => setOpenFAQ(openFAQ === idx ? null : idx)}
+              >
+                <div className="flex justify-between items-center gap-4">
+                  <div>
+                    <h3 className="font-bold text-foreground">{faq.question}</h3>
+                    <p className="text-sm text-foreground/50">{faq.questionHindi}</p>
+                  </div>
+                  {openFAQ === idx ? (
+                    <ChevronUp size={24} className="text-primary flex-shrink-0" />
+                  ) : (
+                    <ChevronDown size={24} className="text-foreground/40 flex-shrink-0" />
+                  )}
                 </div>
-                {openFAQ===idx && <p className="text-foreground/80 mt-3 text-sm">{faq.answer} <br /><span className="text-xs">{faq.answerHindi}</span></p>}
+                {openFAQ === idx && (
+                  <div className="mt-4 pt-4 border-t border-border/60">
+                    <p className="text-foreground/80 text-sm">{faq.answer}</p>
+                    <p className="text-xs text-foreground/50 mt-2">{faq.answerHindi}</p>
+                  </div>
+                )}
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Styles for 3D Flip (keeps Tailwind structure) */}
+      {/* Styles for 3D Flip */}
       <style>{`
-        .perspective { perspective: 1000px; }
-        .card-3d { transform-style: preserve-3d; }
-        .card-face { backface-visibility: hidden; -webkit-backface-visibility: hidden; }
-        .card-front { transform: rotateY(0deg); }
-        .card-back { transform: rotateY(180deg); }
-        .group-hover\\:rotate-y-180:hover { transform: rotateY(180deg); }
-        /* Utility to apply rotate on parent (used above) */
-        .group:hover .card-3d { transform: rotateY(180deg); }
-        /* Ensure smoothness */
-        .card-3d, .card-face { transition: transform 0.7s; }
+        .perspective {
+          perspective: 1000px;
+        }
+        .card-3d {
+          transform-style: preserve-3d;
+          transition: transform 0.7s;
+        }
+        .card-face {
+          backface-visibility: hidden;
+          -webkit-backface-visibility: hidden;
+        }
+        .card-front {
+          transform: rotateY(0deg);
+        }
+        .card-back {
+          transform: rotateY(180deg);
+        }
+        .group:hover .card-3d {
+          transform: rotateY(180deg);
+        }
+        @keyframes fadeIn {
+          from {
+            opacity: 0;
+          }
+          to {
+            opacity: 1;
+          }
+        }
+        @keyframes scaleIn {
+          from {
+            opacity: 0;
+            transform: scale(0.95);
+          }
+          to {
+            opacity: 1;
+            transform: scale(1);
+          }
+        }
+        .animate-fade-in {
+          animation: fadeIn 0.3s ease-out forwards;
+        }
+        .animate-scale-in {
+          animation: scaleIn 0.3s ease-out forwards;
+        }
       `}</style>
     </main>
-  )
+  );
 }
-

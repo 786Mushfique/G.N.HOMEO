@@ -1,11 +1,106 @@
-"use client"
+// "use client"
 
-import Link from "next/link"
-import { useState } from "react"
-import { Menu, X } from "lucide-react"
+// import Link from "next/link"
+// import { useState } from "react"
+// import { Menu, X } from "lucide-react"
+
+// export default function Navigation() {
+//   const [isOpen, setIsOpen] = useState(false)
+
+//   const navLinks = [
+//     { href: "/", label: "Home" },
+//     { href: "/about", label: "About Us" },
+//     { href: "/diseases", label: "Diseases" },
+//     { href: "/consultation", label: "Consultation" },
+//     { href: "/gallery", label: "Gallery" },
+//     { href: "/donation", label: "Donation" },
+//     { href: "/contact", label: "Contact" },
+//   ]
+
+//   return (
+//     <nav className="sticky top-0 z-50 bg-background border-b border-border shadow-sm">
+//       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+//         <div className="flex justify-between items-center h-16">
+//           {/* Logo */}
+//           <Link href="/" className="flex items-center gap-2">
+//             <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center">
+//               <span className="text-primary-foreground font-bold text-lg">G</span>
+//             </div>
+//             <span className="font-bold text-lg text-foreground hidden sm:inline">
+//               <strong>G.N. Homeo Clinic</strong>
+//             </span>
+//           </Link>
+
+//           {/* Desktop Navigation */}
+//           <div className="hidden md:flex items-center gap-8">
+//             {navLinks.map((link) => (
+//               <Link
+//                 key={link.href}
+//                 href={link.href}
+//                 className="text-foreground hover:text-primary transition-colors text-sm font-medium"
+//               >
+//                 {link.label}
+//               </Link>
+//             ))}
+//           </div>
+
+//           {/* CTA Button */}
+//           <div className="hidden md:flex items-center gap-4">
+//             <a
+//               href="https://wa.me/919608628633"
+//               target="_blank"
+//               rel="noopener noreferrer"
+//               className="bg-primary text-primary-foreground px-4 py-2 rounded-lg hover:opacity-90 transition-opacity text-sm font-medium"
+//             >
+//               Talk to Us
+//             </a>
+//           </div>
+
+//           {/* Mobile Menu Button */}
+//           <button
+//             onClick={() => setIsOpen(!isOpen)}
+//             className="md:hidden p-2 hover:bg-muted rounded-lg transition-colors"
+//           >
+//             {isOpen ? <X size={24} /> : <Menu size={24} />}
+//           </button>
+//         </div>
+
+//         {/* Mobile Navigation */}
+//         {isOpen && (
+//           <div className="md:hidden pb-4 space-y-2">
+//             {navLinks.map((link) => (
+//               <Link
+//                 key={link.href}
+//                 href={link.href}
+//                 className="block px-4 py-2 text-foreground hover:bg-muted rounded-lg transition-colors"
+//                 onClick={() => setIsOpen(false)}
+//               >
+//                 {link.label}
+//               </Link>
+//             ))}
+//             <a
+//               href="https://wa.me/919608628633"
+//               target="_blank"
+//               rel="noopener noreferrer"
+//               className="block w-full bg-primary text-primary-foreground px-4 py-2 rounded-lg hover:opacity-90 transition-opacity text-center font-medium mt-4"
+//             >
+//               WhatsApp Chat
+//             </a>
+//           </div>
+//         )}
+//       </div>
+//     </nav>
+//   )
+// }
+
+"use client";
+
+import Link from "next/link";
+import { useState } from "react";
+import { Menu, X, Leaf, Phone } from "lucide-react";
 
 export default function Navigation() {
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
 
   const navLinks = [
     { href: "/", label: "Home" },
@@ -15,64 +110,80 @@ export default function Navigation() {
     { href: "/gallery", label: "Gallery" },
     { href: "/donation", label: "Donation" },
     { href: "/contact", label: "Contact" },
-  ]
+  ];
 
   return (
-    <nav className="sticky top-0 z-50 bg-background border-b border-border shadow-sm">
+    <nav className="sticky top-0 z-50 bg-background/80 backdrop-blur-md border-b border-primary/10 shadow-sm transition-all duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+        <div className="flex justify-between items-center h-16 lg:h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center">
-              <span className="text-primary-foreground font-bold text-lg">G</span>
+          <Link href="/" className="flex items-center gap-2.5 group">
+            <div className="relative flex items-center justify-center w-9 h-9 bg-gradient-to-br from-primary to-primary/70 rounded-xl shadow-md transition-transform group-hover:scale-105">
+              <Leaf className="w-5 h-5 text-primary-foreground" />
             </div>
-            <span className="font-bold text-lg text-foreground hidden sm:inline">
-              <strong>G.N. Homeo Clinic</strong>
-            </span>
+            <div>
+              <span className="font-bold text-lg text-foreground tracking-tight">
+                G.N. Homeo Clinic
+              </span>
+              <span className="hidden lg:block text-[10px] text-foreground/50 leading-none -mt-0.5">
+                Since 1990
+              </span>
+            </div>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-1 lg:gap-2">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-foreground hover:text-primary transition-colors text-sm font-medium"
+                className="relative px-3 py-2 text-sm font-medium text-foreground/70 hover:text-foreground transition-colors duration-200 group"
               >
                 {link.label}
+                <span className="absolute inset-x-0 bottom-0 h-0.5 bg-primary scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300" />
               </Link>
             ))}
           </div>
 
           {/* CTA Button */}
-          <div className="hidden md:flex items-center gap-4">
+          <div className="hidden md:flex items-center gap-3">
             <a
               href="https://wa.me/919608628633"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-primary text-primary-foreground px-4 py-2 rounded-lg hover:opacity-90 transition-opacity text-sm font-medium"
+              className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-5 py-2.5 rounded-full text-sm font-medium shadow-lg shadow-primary/20 hover:shadow-primary/30 hover:-translate-y-0.5 transition-all duration-200"
             >
-              WhatsApp
+              <Phone className="w-4 h-4" />
+              <span>Book Now</span>
             </a>
           </div>
 
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 hover:bg-muted rounded-lg transition-colors"
+            className="md:hidden p-2.5 rounded-xl hover:bg-primary/5 transition-colors relative"
+            aria-label="Toggle menu"
           >
-            {isOpen ? <X size={24} /> : <Menu size={24} />}
+            {isOpen ? (
+              <X className="w-5 h-5 text-foreground" />
+            ) : (
+              <Menu className="w-5 h-5 text-foreground" />
+            )}
           </button>
         </div>
 
         {/* Mobile Navigation */}
-        {isOpen && (
-          <div className="md:hidden pb-4 space-y-2">
+        <div
+          className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${
+            isOpen ? "max-h-[500px] opacity-100 pb-4" : "max-h-0 opacity-0"
+          }`}
+        >
+          <div className="space-y-1 border-t border-primary/10 pt-3">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="block px-4 py-2 text-foreground hover:bg-muted rounded-lg transition-colors"
+                className="block px-4 py-2.5 text-sm text-foreground/80 hover:text-foreground hover:bg-primary/5 rounded-xl transition-colors"
                 onClick={() => setIsOpen(false)}
               >
                 {link.label}
@@ -82,13 +193,15 @@ export default function Navigation() {
               href="https://wa.me/919608628633"
               target="_blank"
               rel="noopener noreferrer"
-              className="block w-full bg-primary text-primary-foreground px-4 py-2 rounded-lg hover:opacity-90 transition-opacity text-center font-medium mt-4"
+              className="flex items-center justify-center gap-2 w-full bg-primary text-primary-foreground px-4 py-3 rounded-xl hover:opacity-90 transition-opacity text-sm font-medium mt-2"
+              onClick={() => setIsOpen(false)}
             >
+              <Phone className="w-4 h-4" />
               WhatsApp Chat
             </a>
           </div>
-        )}
+        </div>
       </div>
     </nav>
-  )
+  );
 }

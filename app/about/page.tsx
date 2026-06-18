@@ -613,346 +613,803 @@
 //   );
 // }
 
-import { Award, Heart, Users, Leaf } from "lucide-react";
+// import { Award, Heart, Users, Leaf } from "lucide-react";
+// import Image from "next/image";
+
+// export default function About() {
+//   const achievements = [
+//     {
+//       icon: Award,
+//       title: "35+ Years Experience",
+//       description: "Dedicated to homeopathic healing and patient wellness",
+//       hindi: "35+ वर्षों का अनुभव — होम्योपैथिक उपचार और रोगी कल्याण के लिए समर्पित",
+//     },
+//     {
+//       icon: Users,
+//       title: "Thousands Healed",
+//       description: "Trusted by patients across the region for natural remedies",
+//       hindi: "हजारों लोगों ने स्वस्थ जीवन पाया — प्राकृतिक उपचार के लिए क्षेत्रभर के रोगियों द्वारा विश्वसनीय",
+//     },
+//     {
+//       icon: Heart,
+//       title: "Patient-First Approach",
+//       description: "Personalized treatment plans tailored to individual needs",
+//       hindi: "रोगी-प्रथम दृष्टिकोण — प्रत्येक व्यक्ति की आवश्यकता के अनुसार व्यक्तिगत उपचार योजना",
+//     },
+//     {
+//       icon: Leaf,
+//       title: "Natural Healing",
+//       description: "100% natural homeopathic remedies with no side effects",
+//       hindi: "100% प्राकृतिक होम्योपैथिक उपचार — बिना किसी दुष्प्रभाव के",
+//     },
+//   ];
+
+//   return (
+//     <main className="min-h-screen overflow-x-hidden">
+//       {/* Hero Section */}
+//       <section className="bg-gradient-to-br from-primary/10 to-secondary/10 py-8 sm:py-12 md:py-16 px-4 animate-fade-in-up">
+//         <div className="max-w-7xl mx-auto">
+//           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-3 sm:mb-4">
+//             About G.N.Homeo Clinic
+//           </h1>
+//           <span className="text-foreground/70 block text-base sm:text-lg mb-3 sm:mb-4">
+//             जी.एन. होमियो क्लिनिक के बारे में
+//           </span>
+//           <p className="text-base sm:text-lg text-foreground/80 max-w-2xl">
+//             Dedicated to providing affordable and natural healing for every home
+//             through expert homeopathic care.
+//             <span className="text-foreground/70 block mt-1 text-sm sm:text-base">
+//               हर घर को किफायती और प्राकृतिक उपचार प्रदान करने के लिए विशेषज्ञ होम्योपैथिक देखभाल के प्रति समर्पित।
+//             </span>
+//           </p>
+//         </div>
+//       </section>
+
+//       {/* Mission Section */}
+//       <section className="py-8 sm:py-12 md:py-16 px-4 bg-background">
+//         <div className="max-w-7xl mx-auto">
+//           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
+//             <div className="w-full max-w-[600px] mx-auto lg:mx-0 rounded-xl overflow-hidden shadow-xl border-4 border-primary/30">
+//               <video
+//                 src="/images/gn1.mp4"
+//                 loop
+//                 controls
+//                 muted={false}
+//                 playsInline
+//                 className="w-full h-auto"
+//               >
+//                 Your browser does not support the video tag.
+//               </video>
+//             </div>
+//             <div className="animate-slide-in-right">
+//               <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-4 sm:mb-6">
+//                 Our Mission
+//               </h2>
+//               <span className="text-foreground/70 block text-base sm:text-lg mb-2">
+//                 हमारा उद्देश्य
+//               </span>
+
+//               <p className="text-base sm:text-lg text-foreground/80 mb-3 sm:mb-4">
+//                 <span className="font-semibold text-foreground">
+//                   "To provide affordable and natural healing for every home."
+//                 </span>
+//                 <span className="text-foreground/70 block mt-1 text-sm sm:text-base">
+//                   "हर घर तक किफायती और प्राकृतिक उपचार पहुँचाना।"
+//                 </span>
+//               </p>
+//               <p className="text-sm sm:text-base text-foreground/80 mb-3 sm:mb-4">
+//                 At G.N.Homeo Clinic, we believe that natural healing is the path
+//                 to true wellness.
+//                 <span className="text-foreground/70 block mt-1 text-sm sm:text-base">
+//                   जी.एन. होमियो क्लिनिक में, हम मानते हैं कि प्राकृतिक उपचार ही वास्तविक स्वास्थ्य का मार्ग है।
+//                 </span>
+//               </p>
+//               <p className="text-sm sm:text-base text-foreground/80 mb-3 sm:mb-4">
+//                 Our mission is to make quality homeopathic care accessible to
+//                 everyone, regardless of their background or financial situation.
+//                 <span className="text-foreground/70 block mt-1 text-sm sm:text-base">
+//                   हमारा उद्देश्य गुणवत्तापूर्ण होम्योपैथिक देखभाल को हर व्यक्ति तक पहुँचाना है, चाहे उनकी आर्थिक स्थिति कुछ भी हो।
+//                 </span>
+//               </p>
+//               <p className="text-sm sm:text-base text-foreground/80">
+//                 We combine traditional homeopathic wisdom with modern medical
+//                 knowledge to treat the root cause of illness.
+//                 <span className="text-foreground/70 block mt-1 text-sm sm:text-base">
+//                   हम पारंपरिक होम्योपैथिक ज्ञान को आधुनिक चिकित्सा विज्ञान के साथ मिलाकर बीमारी के मूल कारण का उपचार करते हैं।
+//                 </span>
+//               </p>
+//             </div>
+//           </div>
+//         </div>
+//       </section>
+
+//       {/* Doctor Profile */}
+//       <section className="py-8 sm:py-12 md:py-16 px-4 bg-primary/5">
+//         <div className="max-w-7xl mx-auto">
+//           <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-8 sm:mb-12 text-center animate-fade-in-up">
+//             Meet <strong>Dr. M.H. Rizwi</strong>
+//           </h2>
+//           <span className="text-foreground/70 block text-center mb-6 sm:mb-8 text-base sm:text-lg">
+//             मिलिए <strong>डॉ. एम.एच. रिज़वी</strong> से
+//           </span>
+
+//           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
+//             <div className="flex justify-center animate-scale-in">
+//               <div className="relative w-full max-w-xs sm:max-w-sm md:max-w-md rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+//                 <Image
+//                   src="/images/gnh1.jpg"
+//                   alt="Dr. M.H. Rizwi"
+//                   width={400}
+//                   height={500}
+//                   className="w-full h-auto object-cover"
+//                   priority
+//                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 400px"
+//                 />
+//               </div>
+//             </div>
+
+//             <div className="animate-slide-in-right">
+//               <div className="mb-4 sm:mb-6">
+//                 <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-1 sm:mb-2">
+//                   <strong>Dr. M.H. Rizwi</strong>
+//                 </h3>
+//                 <p className="text-primary font-semibold text-sm sm:text-base">
+//                   Homeopathic Consultant & General Physician
+//                 </p>
+//                 <span className="text-foreground/70 block mt-1 text-xs sm:text-sm">
+//                   होम्योपैथिक सलाहकार एवं सामान्य चिकित्सक
+//                 </span>
+//               </div>
+
+//               <div className="space-y-3 sm:space-y-4 text-foreground/80">
+//                 <div>
+//                   <h4 className="font-semibold text-foreground mb-1 sm:mb-2 text-sm sm:text-base">
+//                     Professional Expertise
+//                   </h4>
+//                   <span className="text-foreground/70 block mt-1 text-xs sm:text-sm">
+//                     व्यावसायिक विशेषज्ञता
+//                   </span>
+//                   <p className="text-sm sm:text-base">
+//                     A dedicated homeopathic practitioner with a passion for
+//                     natural healing and patient wellness.
+//                     <span className="text-foreground/70 block mt-1 text-xs sm:text-sm">
+//                       प्राकृतिक उपचार और रोगी कल्याण के प्रति समर्पित एक अनुभवी होम्योपैथिक चिकित्सक।
+//                     </span>
+//                   </p>
+//                 </div>
+
+//                 <div>
+//                   <h4 className="font-semibold text-foreground mb-1 sm:mb-2 text-sm sm:text-base">
+//                     Experience
+//                   </h4>
+//                   <span className="text-foreground/70 block mt-1 text-xs sm:text-sm">
+//                     अनुभव
+//                   </span>
+//                   <p className="text-sm sm:text-base">
+//                     With 35 years of practice, Dr. Rizwi has successfully treated
+//                     thousands of patients with various chronic and acute
+//                     conditions.
+//                     <span className="text-foreground/70 block mt-1 text-xs sm:text-sm">
+//                       35 वर्षों के अनुभव के साथ, डॉ. रिज़वी ने विभिन्न तीव्र और दीर्घकालिक बीमारियों से हजारों रोगियों का सफलतापूर्वक इलाज किया है।
+//                     </span>
+//                   </p>
+//                 </div>
+
+//                 <div>
+//                   <h4 className="font-semibold text-foreground mb-1 sm:mb-2 text-sm sm:text-base">
+//                     Treatment Philosophy
+//                   </h4>
+//                   <span className="text-foreground/70 block mt-1 text-xs sm:text-sm">
+//                     उपचार दर्शन
+//                   </span>
+//                   <p className="text-sm sm:text-base">
+//                     Believes in holistic healing—treating the person, not just the disease.
+//                     <span className="text-foreground/70 block mt-1 text-xs sm:text-sm">
+//                       समग्र उपचार में विश्वास — केवल रोग नहीं बल्कि व्यक्ति का उपचार।
+//                     </span>
+//                   </p>
+//                 </div>
+
+//                 <div>
+//                   <h4 className="font-semibold text-foreground mb-1 sm:mb-2 text-sm sm:text-base">
+//                     Specializations
+//                   </h4>
+//                   <span className="text-foreground/70 block mt-1 text-xs sm:text-sm">
+//                     विशेषज्ञताएँ
+//                   </span>
+//                   <ul className="list-disc list-inside space-y-1 text-sm sm:text-base">
+//                     <li className="text-sm sm:text-base">Chronic disease management / पुरानी बीमारियों का प्रबंधन</li>
+//                     <li className="text-sm sm:text-base">Skin and allergic conditions / त्वचा और एलर्जी से जुड़ी समस्याएँ</li>
+//                     <li className="text-sm sm:text-base">Women's health and hormonal disorders / महिलाओं के स्वास्थ्य और हार्मोनल समस्याएँ</li>
+//                     <li className="text-sm sm:text-base">Pediatric care and child health / बाल चिकित्सा और बच्चों का स्वास्थ्य</li>
+//                     <li className="text-sm sm:text-base">Stress, anxiety, and sleep disorders / तनाव, चिंता और नींद से जुड़ी समस्याएँ</li>
+//                   </ul>
+//                 </div>
+//               </div>
+//             </div>
+//           </div>
+//         </div>
+//       </section>
+
+//       {/* Achievements */}
+//       <section className="py-8 sm:py-12 md:py-16 px-4 bg-background">
+//         <div className="max-w-7xl mx-auto">
+//           <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-8 sm:mb-12 text-center animate-fade-in-up">
+//             Why Choose Us
+//           </h2>
+//           <span className="text-foreground/70 block text-center mb-6 sm:mb-8 text-base sm:text-lg">
+//             हमें क्यों चुनें
+//           </span>
+//           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8">
+//             {achievements.map((item, index) => {
+//               const Icon = item.icon;
+//               return (
+//                 <div
+//                   key={index}
+//                   className="bg-card border border-border rounded-lg p-6 sm:p-8 hover:shadow-lg transition-all animate-scale-in hover:border-primary"
+//                   style={{ animationDelay: `${index * 0.1}s` }}
+//                 >
+//                   <Icon className="text-primary mb-3 sm:mb-4" size={32} />
+//                   <h3 className="text-lg sm:text-xl font-bold text-foreground mb-1 sm:mb-2">
+//                     {item.title}
+//                   </h3>
+//                   <p className="text-sm sm:text-base text-foreground/80">{item.description}</p>
+//                   <p className="text-foreground/70 text-xs sm:text-sm mt-1">{item.hindi}</p>
+//                 </div>
+//               );
+//             })}
+//           </div>
+//         </div>
+//       </section>
+
+//       {/* Clinic Info */}
+//       <section className="py-8 sm:py-12 md:py-16 px-4 bg-primary/5">
+//         <div className="max-w-7xl mx-auto">
+//           <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-8 sm:mb-12 text-center animate-fade-in-up">
+//             Clinic Information
+//           </h2>
+//           <span className="text-foreground/70 block text-center mb-6 sm:mb-8 text-base sm:text-lg">
+//             क्लिनिक की जानकारी
+//           </span>
+//           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+//             <div className="bg-card border border-border rounded-lg p-6 sm:p-8 animate-slide-in-left hover:shadow-lg transition-all">
+//               <h3 className="text-lg sm:text-xl font-bold text-foreground mb-3 sm:mb-4">
+//                 Clinic Address
+//               </h3>
+//               <span className="text-foreground/70 block mt-1 text-xs sm:text-sm mb-2">
+//                 क्लिनिक का पता
+//               </span>
+//               <a
+//                 href="https://www.google.com/maps/search/?api=1&query=25.7710094,87.4683081"
+//                 target="_blank"
+//                 rel="noopener noreferrer"
+//                 className="text-foreground/80 hover:text-primary transition-colors"
+//               >
+//                 <p className="font-semibold mb-1 text-sm sm:text-base">
+//                   Club Market Kachhari hata, Purnea
+//                 </p>
+//                 <p className="text-xs sm:text-sm">Near Dto Office, Commissioner Road</p>
+//                 <p className="text-xs sm:text-sm">Pin-854301</p>
+//               </a>
+//               <p className="text-xs sm:text-sm text-foreground/60 mt-2">
+//                 Click to view on Google Maps
+//               </p>
+//               <p className="text-foreground/70 text-xs mt-1">
+//                 गूगल मैप पर देखने के लिए क्लिक करें
+//               </p>
+//             </div>
+
+//             <div className="bg-card border border-border rounded-lg p-6 sm:p-8 animate-slide-in-right hover:shadow-lg transition-all">
+//               <h3 className="text-lg sm:text-xl font-bold text-foreground mb-3 sm:mb-4">
+//                 Clinic Timings
+//               </h3>
+//               <span className="text-foreground/70 block mt-1 text-xs sm:text-sm mb-2">
+//                 क्लिनिक समय
+//               </span>
+//               <div className="space-y-2 text-foreground/80">
+//                 <p className="text-sm sm:text-base">
+//                   <span className="font-semibold">Monday - Saturday:</span> 11:00 AM – 8:00 PM
+//                   <span className="text-foreground/70 block text-xs sm:text-sm">सोमवार से शनिवार: सुबह 11:00 बजे से रात 8:00 बजे तक</span>
+//                 </p>
+//                 <p className="text-sm sm:text-base">
+//                   <span className="font-semibold">Friday - Closed</span>
+//                   <span className="text-foreground/70 block text-xs sm:text-sm">शुक्रवार - बंद</span>
+//                 </p>
+//                 <p className="text-sm sm:text-base">
+//                   <span className="font-semibold">Sunday:</span> 4:00 PM – 8:00 PM
+//                   <span className="text-foreground/70 block text-xs sm:text-sm">रविवार: शाम 4:00 बजे से रात 8:00 बजे तक</span>
+//                 </p>
+//                 <p className="text-xs sm:text-sm pt-2">Closed on Fridays</p>
+//                 <p className="text-foreground/70 text-xs">शुक्रवार को क्लिनिक बंद रहता है</p>
+//               </div>
+//             </div>
+//           </div>
+//         </div>
+//       </section>
+
+//       {/* CTA */}
+//       <section className="py-8 sm:py-12 md:py-16 px-4 bg-primary text-primary-foreground animate-fade-in-up">
+//         <div className="max-w-7xl mx-auto text-center">
+//           <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4">
+//             Experience Natural Healing Today
+//           </h2>
+//           <span className="block text-base sm:text-lg mb-4 sm:mb-6 opacity-90">
+//             आज ही प्राकृतिक उपचार का अनुभव करें
+//           </span>
+//           <p className="text-sm sm:text-base opacity-90 mb-6 sm:mb-8 max-w-2xl mx-auto">
+//             Schedule your free consultation with Dr. M.H. Rizwi and start your
+//             journey to wellness.
+//             <span className="text-primary-foreground/80 block mt-1 text-xs sm:text-sm">
+//               डॉ. एम.एच. रिज़वी के साथ अपनी निःशुल्क परामर्श बुक करें और स्वस्थ जीवन की यात्रा शुरू करें।
+//             </span>
+//           </p>
+//           <a
+//             href="https://wa.me/919608628633"
+//             target="_blank"
+//             rel="noopener noreferrer"
+//             className="inline-block bg-primary-foreground text-primary px-5 sm:px-6 py-2.5 sm:py-3 rounded-lg hover:opacity-90 transition-all font-semibold hover:shadow-lg text-sm sm:text-base"
+//           >
+//             Contact Us Now / अभी संपर्क करें
+//           </a>
+//         </div>
+//       </section>
+//     </main>
+//   );
+// }
+
+"use client";
+
+import { Award, Heart, Users, Leaf, Clock, MapPin, Phone, Star, Shield, Sparkles, ChevronRight } from "lucide-react";
 import Image from "next/image";
 
 export default function About() {
-  const achievements = [
-    {
-      icon: Award,
-      title: "35+ Years Experience",
-      description: "Dedicated to homeopathic healing and patient wellness",
-      hindi: "35+ वर्षों का अनुभव — होम्योपैथिक उपचार और रोगी कल्याण के लिए समर्पित",
-    },
-    {
-      icon: Users,
-      title: "Thousands Healed",
-      description: "Trusted by patients across the region for natural remedies",
-      hindi: "हजारों लोगों ने स्वस्थ जीवन पाया — प्राकृतिक उपचार के लिए क्षेत्रभर के रोगियों द्वारा विश्वसनीय",
-    },
-    {
-      icon: Heart,
-      title: "Patient-First Approach",
-      description: "Personalized treatment plans tailored to individual needs",
-      hindi: "रोगी-प्रथम दृष्टिकोण — प्रत्येक व्यक्ति की आवश्यकता के अनुसार व्यक्तिगत उपचार योजना",
-    },
-    {
-      icon: Leaf,
-      title: "Natural Healing",
-      description: "100% natural homeopathic remedies with no side effects",
-      hindi: "100% प्राकृतिक होम्योपैथिक उपचार — बिना किसी दुष्प्रभाव के",
-    },
-  ];
+    const achievements = [{
+        icon: Award,
+        title: "35+ Years Experience",
+        description: "Dedicated to homeopathic healing and patient wellness",
+        hindi: "35+ वर्षों का अनुभव — होम्योपैथिक उपचार और रोगी कल्याण के लिए समर्पित",
+        color: "from-amber-500/20 to-orange-500/20",
+        iconColor: "text-amber-500"
+    }, {
+        icon: Users,
+        title: "Thousands Healed",
+        description: "Trusted by patients across the region for natural remedies",
+        hindi: "हजारों लोगों ने स्वस्थ जीवन पाया — प्राकृतिक उपचार के लिए क्षेत्रभर के रोगियों द्वारा विश्वसनीय",
+        color: "from-emerald-500/20 to-teal-500/20",
+        iconColor: "text-emerald-500"
+    }, {
+        icon: Heart,
+        title: "Patient-First Approach",
+        description: "Personalized treatment plans tailored to individual needs",
+        hindi: "रोगी-प्रथम दृष्टिकोण — प्रत्येक व्यक्ति की आवश्यकता के अनुसार व्यक्तिगत उपचार योजना",
+        color: "from-rose-500/20 to-pink-500/20",
+        iconColor: "text-rose-500"
+    }, {
+        icon: Leaf,
+        title: "Natural Healing",
+        description: "100% natural homeopathic remedies with no side effects",
+        hindi: "100% प्राकृतिक होम्योपैथिक उपचार — बिना किसी दुष्प्रभाव के",
+        color: "from-sky-500/20 to-indigo-500/20",
+        iconColor: "text-sky-500"
+    }];
 
-  return (
-    <main className="min-h-screen overflow-x-hidden">
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-primary/10 to-secondary/10 py-8 sm:py-12 md:py-16 px-4 animate-fade-in-up">
-        <div className="max-w-7xl mx-auto">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-3 sm:mb-4">
-            About G.N.Homeo Clinic
-          </h1>
-          <span className="text-foreground/70 block text-base sm:text-lg mb-3 sm:mb-4">
-            जी.एन. होमियो क्लिनिक के बारे में
-          </span>
-          <p className="text-base sm:text-lg text-foreground/80 max-w-2xl">
-            Dedicated to providing affordable and natural healing for every home
-            through expert homeopathic care.
-            <span className="text-foreground/70 block mt-1 text-sm sm:text-base">
-              हर घर को किफायती और प्राकृतिक उपचार प्रदान करने के लिए विशेषज्ञ होम्योपैथिक देखभाल के प्रति समर्पित।
-            </span>
-          </p>
-        </div>
-      </section>
+    const specializations = [
+        "Chronic disease management",
+        "Skin and allergic conditions",
+        "Women's health and hormonal disorders",
+        "Pediatric care and child health",
+        "Stress, anxiety, and sleep disorders"
+    ];
 
-      {/* Mission Section */}
-      <section className="py-8 sm:py-12 md:py-16 px-4 bg-background">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
-            <div className="w-full max-w-[600px] mx-auto lg:mx-0 rounded-xl overflow-hidden shadow-xl border-4 border-primary/30">
-              <video
-                src="/images/gn1.mp4"
-                loop
-                controls
-                muted={false}
-                playsInline
-                className="w-full h-auto"
-              >
-                Your browser does not support the video tag.
-              </video>
-            </div>
-            <div className="animate-slide-in-right">
-              <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-4 sm:mb-6">
-                Our Mission
-              </h2>
-              <span className="text-foreground/70 block text-base sm:text-lg mb-2">
-                हमारा उद्देश्य
-              </span>
+    const specializationsHindi = [
+        "पुरानी बीमारियों का प्रबंधन",
+        "त्वचा और एलर्जी से जुड़ी समस्याएँ",
+        "महिलाओं के स्वास्थ्य और हार्मोनल समस्याएँ",
+        "बाल चिकित्सा और बच्चों का स्वास्थ्य",
+        "तनाव, चिंता और नींद से जुड़ी समस्याएँ"
+    ];
 
-              <p className="text-base sm:text-lg text-foreground/80 mb-3 sm:mb-4">
-                <span className="font-semibold text-foreground">
-                  "To provide affordable and natural healing for every home."
-                </span>
-                <span className="text-foreground/70 block mt-1 text-sm sm:text-base">
-                  "हर घर तक किफायती और प्राकृतिक उपचार पहुँचाना।"
-                </span>
-              </p>
-              <p className="text-sm sm:text-base text-foreground/80 mb-3 sm:mb-4">
-                At G.N.Homeo Clinic, we believe that natural healing is the path
-                to true wellness.
-                <span className="text-foreground/70 block mt-1 text-sm sm:text-base">
-                  जी.एन. होमियो क्लिनिक में, हम मानते हैं कि प्राकृतिक उपचार ही वास्तविक स्वास्थ्य का मार्ग है।
-                </span>
-              </p>
-              <p className="text-sm sm:text-base text-foreground/80 mb-3 sm:mb-4">
-                Our mission is to make quality homeopathic care accessible to
-                everyone, regardless of their background or financial situation.
-                <span className="text-foreground/70 block mt-1 text-sm sm:text-base">
-                  हमारा उद्देश्य गुणवत्तापूर्ण होम्योपैथिक देखभाल को हर व्यक्ति तक पहुँचाना है, चाहे उनकी आर्थिक स्थिति कुछ भी हो।
-                </span>
-              </p>
-              <p className="text-sm sm:text-base text-foreground/80">
-                We combine traditional homeopathic wisdom with modern medical
-                knowledge to treat the root cause of illness.
-                <span className="text-foreground/70 block mt-1 text-sm sm:text-base">
-                  हम पारंपरिक होम्योपैथिक ज्ञान को आधुनिक चिकित्सा विज्ञान के साथ मिलाकर बीमारी के मूल कारण का उपचार करते हैं।
-                </span>
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+    return (
+        <main className="min-h-screen bg-white text-slate-800 font-sans antialiased overflow-x-hidden">
 
-      {/* Doctor Profile */}
-      <section className="py-8 sm:py-12 md:py-16 px-4 bg-primary/5">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-8 sm:mb-12 text-center animate-fade-in-up">
-            Meet <strong>Dr. M.H. Rizwi</strong>
-          </h2>
-          <span className="text-foreground/70 block text-center mb-6 sm:mb-8 text-base sm:text-lg">
-            मिलिए <strong>डॉ. एम.एच. रिज़वी</strong> से
-          </span>
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
-            <div className="flex justify-center animate-scale-in">
-              <div className="relative w-full max-w-xs sm:max-w-sm md:max-w-md rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
-                <Image
-                  src="/images/gnh1.jpg"
-                  alt="Dr. M.H. Rizwi"
-                  width={400}
-                  height={500}
-                  className="w-full h-auto object-cover"
-                  priority
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 400px"
-                />
-              </div>
-            </div>
-
-            <div className="animate-slide-in-right">
-              <div className="mb-4 sm:mb-6">
-                <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-1 sm:mb-2">
-                  <strong>Dr. M.H. Rizwi</strong>
-                </h3>
-                <p className="text-primary font-semibold text-sm sm:text-base">
-                  Homeopathic Consultant & General Physician
-                </p>
-                <span className="text-foreground/70 block mt-1 text-xs sm:text-sm">
-                  होम्योपैथिक सलाहकार एवं सामान्य चिकित्सक
-                </span>
-              </div>
-
-              <div className="space-y-3 sm:space-y-4 text-foreground/80">
-                <div>
-                  <h4 className="font-semibold text-foreground mb-1 sm:mb-2 text-sm sm:text-base">
-                    Professional Expertise
-                  </h4>
-                  <span className="text-foreground/70 block mt-1 text-xs sm:text-sm">
-                    व्यावसायिक विशेषज्ञता
-                  </span>
-                  <p className="text-sm sm:text-base">
-                    A dedicated homeopathic practitioner with a passion for
-                    natural healing and patient wellness.
-                    <span className="text-foreground/70 block mt-1 text-xs sm:text-sm">
-                      प्राकृतिक उपचार और रोगी कल्याण के प्रति समर्पित एक अनुभवी होम्योपैथिक चिकित्सक।
-                    </span>
-                  </p>
+            {/* ========== HERO ========== */}
+            <section className="relative min-h-[85vh] flex items-center px-4 sm:px-6 lg:px-8 overflow-hidden">
+                {/* Background abstract shapes */}
+                <div className="absolute inset-0 -z-10">
+                    <div className="absolute top-0 -right-1/3 w-2/3 h-2/3 bg-gradient-to-br from-primary/10 to-transparent rounded-full blur-3xl" />
+                    <div className="absolute bottom-0 -left-1/4 w-1/2 h-1/2 bg-gradient-to-tr from-secondary/10 to-transparent rounded-full blur-3xl" />
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] bg-primary/5 rounded-full blur-3xl" />
                 </div>
 
-                <div>
-                  <h4 className="font-semibold text-foreground mb-1 sm:mb-2 text-sm sm:text-base">
-                    Experience
-                  </h4>
-                  <span className="text-foreground/70 block mt-1 text-xs sm:text-sm">
-                    अनुभव
-                  </span>
-                  <p className="text-sm sm:text-base">
-                    With 35 years of practice, Dr. Rizwi has successfully treated
-                    thousands of patients with various chronic and acute
-                    conditions.
-                    <span className="text-foreground/70 block mt-1 text-xs sm:text-sm">
-                      35 वर्षों के अनुभव के साथ, डॉ. रिज़वी ने विभिन्न तीव्र और दीर्घकालिक बीमारियों से हजारों रोगियों का सफलतापूर्वक इलाज किया है।
-                    </span>
-                  </p>
+                <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+                    {/* Left content */}
+                    <div className="space-y-5 relative z-10">
+                        <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-1.5 rounded-full text-sm font-medium tracking-wide">
+                            <Shield size={14} />
+                            <span>Trusted Since 1990</span>
+                        </div>
+                        <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-[1.1]">
+                            <span className="bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
+                                G.N.Homeo Clinic
+                            </span>
+                            <span className="block text-slate-800 mt-1 text-3xl sm:text-4xl md:text-5xl">
+                                Natural Healing
+                            </span>
+                        </h1>
+                        <p className="text-slate-600 text-base sm:text-lg max-w-md leading-relaxed">
+                            Dedicated to providing affordable and natural healing for every home
+                            through expert homeopathic care.
+                        </p>
+                        <p className="text-slate-400 text-sm font-medium">
+                            हर घर को किफायती और प्राकृतिक उपचार प्रदान करने के लिए विशेषज्ञ होम्योपैथिक देखभाल के प्रति समर्पित।
+                        </p>
+                        <div className="flex flex-wrap gap-3 pt-2">
+                            <a
+                                href="https://wa.me/919608628633"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center gap-2 bg-primary text-white px-6 py-3 rounded-full hover:shadow-lg hover:shadow-primary/30 transition-all duration-300 font-semibold text-sm"
+                            >
+                                <Phone size={18} />
+                                Book Consultation
+                            </a>
+                            <a
+                                href="#mission"
+                                className="inline-flex items-center gap-2 border border-slate-200 bg-white/70 backdrop-blur-sm px-6 py-3 rounded-full hover:bg-white hover:shadow-md transition-all duration-300 font-medium text-sm"
+                            >
+                                Learn More
+                                <ChevronRight size={16} className="text-primary" />
+                            </a>
+                        </div>
+                    </div>
+
+                    {/* Right: Doctor image with floating badge */}
+                    <div className="relative flex justify-center lg:justify-end">
+                        <div className="relative w-full max-w-sm lg:max-w-md">
+                            {/* Glow ring */}
+                            <div className="absolute -inset-6 bg-gradient-to-tr from-primary/20 via-secondary/20 to-primary/20 rounded-full blur-2xl" />
+                            <div className="relative rounded-full overflow-hidden shadow-2xl border-4 border-white/20">
+                                <Image
+                                    src="https://bizimages.withfloats.com/actual/67b55e51d62329b6bb7d6b1a.jpg"
+                                    alt="Dr. M.H. Rizwi"
+                                    width={500}
+                                    height={500}
+                                    className="w-full h-auto object-cover aspect-square"
+                                    priority
+                                />
+                            </div>
+                            {/* Floating badge */}
+                            <div className="absolute -top-2 -right-2 bg-white rounded-xl shadow-xl px-4 py-2 flex items-center gap-2 border border-primary/10 animate-float">
+                                <Star size={16} className="text-amber-400 fill-amber-400" />
+                                <span className="font-bold text-sm">4.9/5</span>
+                            </div>
+                            {/* Second badge: experience */}
+                            <div className="absolute -bottom-2 -left-2 bg-white rounded-xl shadow-xl px-4 py-2 border border-primary/10">
+                                <p className="text-xl font-bold text-primary">35+</p>
+                                <p className="text-xs text-slate-500">Years</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+            </section>
 
-                <div>
-                  <h4 className="font-semibold text-foreground mb-1 sm:mb-2 text-sm sm:text-base">
-                    Treatment Philosophy
-                  </h4>
-                  <span className="text-foreground/70 block mt-1 text-xs sm:text-sm">
-                    उपचार दर्शन
-                  </span>
-                  <p className="text-sm sm:text-base">
-                    Believes in holistic healing—treating the person, not just the disease.
-                    <span className="text-foreground/70 block mt-1 text-xs sm:text-sm">
-                      समग्र उपचार में विश्वास — केवल रोग नहीं बल्कि व्यक्ति का उपचार।
-                    </span>
-                  </p>
+            {/* ========== MISSION ========== */}
+            <section id="mission" className="py-16 sm:py-20 px-4 bg-slate-50/80 backdrop-blur-sm border-t border-slate-100">
+                <div className="max-w-7xl mx-auto">
+                    <div className="text-center mb-12">
+                        <span className="inline-block text-primary font-semibold text-sm tracking-widest uppercase bg-primary/10 px-4 py-1.5 rounded-full">
+                            Our Mission
+                        </span>
+                        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mt-4 text-slate-800">
+                            Healing with <span className="text-primary">Heart & Science</span>
+                        </h2>
+                        <p className="text-slate-500 text-base sm:text-lg mt-2">
+                            हर घर तक किफायती और प्राकृतिक उपचार पहुँचाना
+                        </p>
+                    </div>
+
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center">
+                        <div className="relative order-2 lg:order-1">
+                            <div className="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-primary/10">
+                                <video
+                                    src="/images/homeo.mp4"
+                                    autoPlay
+                                    loop
+                                  
+                                    muted
+                                    playsInline
+                                    className="w-full h-auto aspect-video object-cover"
+                                >
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                            <div className="absolute -bottom-6 -right-6 w-24 h-24 bg-primary/10 rounded-full blur-2xl" />
+                            <div className="absolute -top-6 -left-6 w-16 h-16 bg-secondary/10 rounded-full blur-2xl" />
+                        </div>
+
+                        <div className="order-1 lg:order-2 space-y-5">
+                            <h3 className="text-2xl font-bold text-slate-800">
+                                "To provide affordable and natural healing for every home."
+                            </h3>
+                            <p className="text-slate-500 text-sm font-medium">
+                                "हर घर तक किफायती और प्राकृतिक उपचार पहुँचाना।"
+                            </p>
+                            <div className="space-y-4 text-slate-600 leading-relaxed">
+                                <p className="text-base">
+                                    At G.N.Homeo Clinic, we believe that natural healing is the path
+                                    to true wellness.
+                                    <span className="block text-slate-400 text-sm mt-1">
+                                        जी.एन. होमियो क्लिनिक में, हम मानते हैं कि प्राकृतिक उपचार ही वास्तविक स्वास्थ्य का मार्ग है।
+                                    </span>
+                                </p>
+                                <p className="text-base">
+                                    Our mission is to make quality homeopathic care accessible to
+                                    everyone, regardless of their background or financial situation.
+                                    <span className="block text-slate-400 text-sm mt-1">
+                                        हमारा उद्देश्य गुणवत्तापूर्ण होम्योपैथिक देखभाल को हर व्यक्ति तक पहुँचाना है, चाहे उनकी आर्थिक स्थिति कुछ भी हो।
+                                    </span>
+                                </p>
+                                <p className="text-base">
+                                    We combine traditional homeopathic wisdom with modern medical
+                                    knowledge to treat the root cause of illness.
+                                    <span className="block text-slate-400 text-sm mt-1">
+                                        हम पारंपरिक होम्योपैथिक ज्ञान को आधुनिक चिकित्सा विज्ञान के साथ मिलाकर बीमारी के मूल कारण का उपचार करते हैं।
+                                    </span>
+                                </p>
+                            </div>
+                            <div className="grid grid-cols-2 gap-3 pt-2">
+                                <div className="flex items-center gap-3 bg-white rounded-xl px-4 py-3 shadow-sm">
+                                    <div className="w-2 h-2 rounded-full bg-primary" />
+                                    <span className="text-sm font-medium">35+ Years Trust</span>
+                                </div>
+                                <div className="flex items-center gap-3 bg-white rounded-xl px-4 py-3 shadow-sm">
+                                    <div className="w-2 h-2 rounded-full bg-secondary" />
+                                    <span className="text-sm font-medium">100% Natural</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+            </section>
 
-                <div>
-                  <h4 className="font-semibold text-foreground mb-1 sm:mb-2 text-sm sm:text-base">
-                    Specializations
-                  </h4>
-                  <span className="text-foreground/70 block mt-1 text-xs sm:text-sm">
-                    विशेषज्ञताएँ
-                  </span>
-                  <ul className="list-disc list-inside space-y-1 text-sm sm:text-base">
-                    <li className="text-sm sm:text-base">Chronic disease management / पुरानी बीमारियों का प्रबंधन</li>
-                    <li className="text-sm sm:text-base">Skin and allergic conditions / त्वचा और एलर्जी से जुड़ी समस्याएँ</li>
-                    <li className="text-sm sm:text-base">Women's health and hormonal disorders / महिलाओं के स्वास्थ्य और हार्मोनल समस्याएँ</li>
-                    <li className="text-sm sm:text-base">Pediatric care and child health / बाल चिकित्सा और बच्चों का स्वास्थ्य</li>
-                    <li className="text-sm sm:text-base">Stress, anxiety, and sleep disorders / तनाव, चिंता और नींद से जुड़ी समस्याएँ</li>
-                  </ul>
+            {/* ========== DOCTOR PROFILE ========== */}
+            <section className="py-16 sm:py-20 px-4 bg-white relative">
+                <div className="max-w-7xl mx-auto">
+                    <div className="text-center mb-12">
+                        <span className="inline-block text-primary font-semibold text-sm tracking-widest uppercase bg-primary/10 px-4 py-1.5 rounded-full">
+                            Our Doctor
+                        </span>
+                        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mt-4 text-slate-800">
+                            Meet <span className="text-primary">Dr. M.H. Rizwi</span>
+                        </h2>
+                        <p className="text-slate-500 text-base sm:text-lg mt-2">
+                            मिलिए <span className="font-medium">डॉ. एम.एच. रिज़वी</span> से
+                        </p>
+                    </div>
+
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-start">
+                        <div className="relative flex justify-center">
+                            <div className="relative w-full max-w-sm lg:max-w-md">
+                                <div className="absolute -inset-4 bg-gradient-to-tr from-primary/20 via-secondary/20 to-primary/20 rounded-3xl blur-2xl opacity-60" />
+                                <div className="relative rounded-2xl overflow-hidden shadow-2xl border-2 border-white/20 bg-white p-1">
+                                    <Image
+                                        src="/images/gnh1.jpg"
+                                        alt="Dr. M.H. Rizwi"
+                                        width={450}
+                                        height={550}
+                                        className="w-full h-auto object-cover rounded-xl"
+                                        priority
+                                    />
+                                </div>
+                                <div className="absolute -bottom-4 -right-4 bg-white rounded-xl shadow-xl px-5 py-3 border border-primary/10">
+                                    <p className="text-2xl font-bold text-primary">35+</p>
+                                    <p className="text-xs text-slate-500">Years Experience</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="space-y-5">
+                            <div>
+                                <h3 className="text-2xl sm:text-3xl font-bold text-slate-800">Dr. M.H. Rizwi</h3>
+                                <p className="text-primary font-medium text-base">Homeopathic Consultant & General Physician</p>
+                                <p className="text-slate-400 text-sm">होम्योपैथिक सलाहकार एवं सामान्य चिकित्सक</p>
+                            </div>
+
+                            <div className="grid grid-cols-1 gap-4">
+                                <div className="bg-slate-50/80 rounded-xl p-5 border border-slate-100">
+                                    <h4 className="font-semibold text-slate-800 flex items-center gap-2">
+                                        <Sparkles size={16} className="text-primary" />
+                                        Professional Expertise
+                                    </h4>
+                                    <p className="text-slate-500 text-sm">व्यावसायिक विशेषज्ञता</p>
+                                    <p className="text-slate-600 text-sm mt-2 leading-relaxed">
+                                        A dedicated homeopathic practitioner with a passion for
+                                        natural healing and patient wellness.
+                                        <span className="block text-slate-400 text-xs mt-1">
+                                            प्राकृतिक उपचार और रोगी कल्याण के प्रति समर्पित एक अनुभवी होम्योपैथिक चिकित्सक।
+                                        </span>
+                                    </p>
+                                </div>
+
+                                <div className="bg-slate-50/80 rounded-xl p-5 border border-slate-100">
+                                    <h4 className="font-semibold text-slate-800 flex items-center gap-2">
+                                        <Award size={16} className="text-primary" />
+                                        Experience
+                                    </h4>
+                                    <p className="text-slate-500 text-sm">अनुभव</p>
+                                    <p className="text-slate-600 text-sm mt-2 leading-relaxed">
+                                        With 35 years of practice, Dr. Rizwi has successfully treated
+                                        thousands of patients with various chronic and acute conditions.
+                                        <span className="block text-slate-400 text-xs mt-1">
+                                            35 वर्षों के अनुभव के साथ, डॉ. रिज़वी ने विभिन्न तीव्र और दीर्घकालिक बीमारियों से हजारों रोगियों का सफलतापूर्वक इलाज किया है।
+                                        </span>
+                                    </p>
+                                </div>
+
+                                <div className="bg-slate-50/80 rounded-xl p-5 border border-slate-100">
+                                    <h4 className="font-semibold text-slate-800 flex items-center gap-2">
+                                        <Heart size={16} className="text-primary" />
+                                        Treatment Philosophy
+                                    </h4>
+                                    <p className="text-slate-500 text-sm">उपचार दर्शन</p>
+                                    <p className="text-slate-600 text-sm mt-2 leading-relaxed">
+                                        Believes in holistic healing—treating the person, not just the disease.
+                                        <span className="block text-slate-400 text-xs mt-1">
+                                            समग्र उपचार में विश्वास — केवल रोग नहीं बल्कि व्यक्ति का उपचार।
+                                        </span>
+                                    </p>
+                                </div>
+
+                                <div className="bg-slate-50/80 rounded-xl p-5 border border-slate-100">
+                                    <h4 className="font-semibold text-slate-800 flex items-center gap-2">
+                                        <Star size={16} className="text-primary" />
+                                        Specializations
+                                    </h4>
+                                    <p className="text-slate-500 text-sm mb-2">विशेषज्ञताएँ</p>
+                                    <div className="flex flex-wrap gap-2">
+                                        {specializations.map((spec, idx) => (
+                                            <span
+                                                key={idx}
+                                                className="inline-block bg-white px-3 py-1.5 rounded-full text-xs font-medium text-slate-700 border border-slate-200 shadow-sm"
+                                            >
+                                                {spec}
+                                                <span className="block text-[10px] text-slate-400 font-normal">{specializationsHindi[idx]}</span>
+                                            </span>
+                                        ))}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+            </section>
 
-      {/* Achievements */}
-      <section className="py-8 sm:py-12 md:py-16 px-4 bg-background">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-8 sm:mb-12 text-center animate-fade-in-up">
-            Why Choose Us
-          </h2>
-          <span className="text-foreground/70 block text-center mb-6 sm:mb-8 text-base sm:text-lg">
-            हमें क्यों चुनें
-          </span>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8">
-            {achievements.map((item, index) => {
-              const Icon = item.icon;
-              return (
-                <div
-                  key={index}
-                  className="bg-card border border-border rounded-lg p-6 sm:p-8 hover:shadow-lg transition-all animate-scale-in hover:border-primary"
-                  style={{ animationDelay: `${index * 0.1}s` }}
-                >
-                  <Icon className="text-primary mb-3 sm:mb-4" size={32} />
-                  <h3 className="text-lg sm:text-xl font-bold text-foreground mb-1 sm:mb-2">
-                    {item.title}
-                  </h3>
-                  <p className="text-sm sm:text-base text-foreground/80">{item.description}</p>
-                  <p className="text-foreground/70 text-xs sm:text-sm mt-1">{item.hindi}</p>
+            {/* ========== ACHIEVEMENTS ========== */}
+            <section className="py-16 sm:py-20 px-4 bg-slate-50/80 border-t border-slate-100">
+                <div className="max-w-7xl mx-auto">
+                    <div className="text-center mb-12">
+                        <span className="inline-block text-primary font-semibold text-sm tracking-widest uppercase bg-primary/10 px-4 py-1.5 rounded-full">
+                            Why Choose Us
+                        </span>
+                        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mt-4 text-slate-800">
+                            Our <span className="text-primary">Commitment</span> to You
+                        </h2>
+                        <p className="text-slate-500 text-base sm:text-lg mt-2">हमें क्यों चुनें</p>
+                    </div>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 md:gap-6">
+                        {achievements.map((item, index) => {
+                            const Icon = item.icon;
+                            return (
+                                <div
+                                    key={index}
+                                    className="group relative bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition-all duration-500 border border-slate-100 hover:border-primary/20"
+                                >
+                                    <div className={`absolute inset-0 bg-gradient-to-br ${item.color} opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl`} />
+                                    <div className="relative z-10">
+                                        <div className={`w-12 h-12 rounded-xl ${item.iconColor} bg-white shadow-sm flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300`}>
+                                            <Icon size={24} className={item.iconColor} />
+                                        </div>
+                                        <h3 className="text-lg font-bold text-slate-800 mb-0.5">{item.title}</h3>
+                                        <p className="text-slate-500 text-sm">{item.description}</p>
+                                        <p className="text-slate-400 text-xs mt-1.5">{item.hindi}</p>
+                                    </div>
+                                </div>
+                            );
+                        })}
+                    </div>
                 </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
+            </section>
 
-      {/* Clinic Info */}
-      <section className="py-8 sm:py-12 md:py-16 px-4 bg-primary/5">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-8 sm:mb-12 text-center animate-fade-in-up">
-            Clinic Information
-          </h2>
-          <span className="text-foreground/70 block text-center mb-6 sm:mb-8 text-base sm:text-lg">
-            क्लिनिक की जानकारी
-          </span>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-            <div className="bg-card border border-border rounded-lg p-6 sm:p-8 animate-slide-in-left hover:shadow-lg transition-all">
-              <h3 className="text-lg sm:text-xl font-bold text-foreground mb-3 sm:mb-4">
-                Clinic Address
-              </h3>
-              <span className="text-foreground/70 block mt-1 text-xs sm:text-sm mb-2">
-                क्लिनिक का पता
-              </span>
-              <a
-                href="https://www.google.com/maps/search/?api=1&query=25.7710094,87.4683081"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-foreground/80 hover:text-primary transition-colors"
-              >
-                <p className="font-semibold mb-1 text-sm sm:text-base">
-                  Club Market Kachhari hata, Purnea
-                </p>
-                <p className="text-xs sm:text-sm">Near Dto Office, Commissioner Road</p>
-                <p className="text-xs sm:text-sm">Pin-854301</p>
-              </a>
-              <p className="text-xs sm:text-sm text-foreground/60 mt-2">
-                Click to view on Google Maps
-              </p>
-              <p className="text-foreground/70 text-xs mt-1">
-                गूगल मैप पर देखने के लिए क्लिक करें
-              </p>
-            </div>
+            {/* ========== CLINIC INFO ========== */}
+            <section className="py-16 sm:py-20 px-4 bg-white relative">
+                <div className="max-w-7xl mx-auto">
+                    <div className="text-center mb-12">
+                        <span className="inline-block text-primary font-semibold text-sm tracking-widest uppercase bg-primary/10 px-4 py-1.5 rounded-full">
+                            Visit Us
+                        </span>
+                        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mt-4 text-slate-800">
+                            Clinic <span className="text-primary">Information</span>
+                        </h2>
+                        <p className="text-slate-500 text-base sm:text-lg mt-2">क्लिनिक की जानकारी</p>
+                    </div>
 
-            <div className="bg-card border border-border rounded-lg p-6 sm:p-8 animate-slide-in-right hover:shadow-lg transition-all">
-              <h3 className="text-lg sm:text-xl font-bold text-foreground mb-3 sm:mb-4">
-                Clinic Timings
-              </h3>
-              <span className="text-foreground/70 block mt-1 text-xs sm:text-sm mb-2">
-                क्लिनिक समय
-              </span>
-              <div className="space-y-2 text-foreground/80">
-                <p className="text-sm sm:text-base">
-                  <span className="font-semibold">Monday - Saturday:</span> 11:00 AM – 8:00 PM
-                  <span className="text-foreground/70 block text-xs sm:text-sm">सोमवार से शनिवार: सुबह 11:00 बजे से रात 8:00 बजे तक</span>
-                </p>
-                <p className="text-sm sm:text-base">
-                  <span className="font-semibold">Friday - Closed</span>
-                  <span className="text-foreground/70 block text-xs sm:text-sm">शुक्रवार - बंद</span>
-                </p>
-                <p className="text-sm sm:text-base">
-                  <span className="font-semibold">Sunday:</span> 4:00 PM – 8:00 PM
-                  <span className="text-foreground/70 block text-xs sm:text-sm">रविवार: शाम 4:00 बजे से रात 8:00 बजे तक</span>
-                </p>
-                <p className="text-xs sm:text-sm pt-2">Closed on Fridays</p>
-                <p className="text-foreground/70 text-xs">शुक्रवार को क्लिनिक बंद रहता है</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+                        <div className="bg-slate-50/80 rounded-2xl p-6 md:p-7 border border-slate-100 hover:shadow-lg transition-all duration-300">
+                            <div className="flex items-start gap-4">
+                                <div className="w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
+                                    <MapPin size={20} className="text-primary" />
+                                </div>
+                                <div className="flex-1">
+                                    <h3 className="text-xl font-bold text-slate-800 mb-1">Clinic Address</h3>
+                                    <p className="text-slate-500 text-sm">क्लिनिक का पता</p>
+                                    <a
+                                        href="https://www.google.com/maps/search/?api=1&query=25.7710094,87.4683081"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="block mt-2 group"
+                                    >
+                                        <div className="p-4 bg-white rounded-xl border border-slate-200 hover:border-primary/30 transition-colors">
+                                            <p className="font-semibold text-slate-800 text-sm sm:text-base">Club Market Kachhari hata, Purnea</p>
+                                            <p className="text-slate-500 text-sm">Near Dto Office, Commissioner Road</p>
+                                            <p className="text-slate-500 text-sm">Pin-854301</p>
+                                            <p className="text-primary text-xs font-medium mt-2 flex items-center gap-1 group-hover:gap-2 transition-all">
+                                                View on Google Maps →
+                                            </p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
 
-      {/* CTA */}
-      <section className="py-8 sm:py-12 md:py-16 px-4 bg-primary text-primary-foreground animate-fade-in-up">
-        <div className="max-w-7xl mx-auto text-center">
-          <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4">
-            Experience Natural Healing Today
-          </h2>
-          <span className="block text-base sm:text-lg mb-4 sm:mb-6 opacity-90">
-            आज ही प्राकृतिक उपचार का अनुभव करें
-          </span>
-          <p className="text-sm sm:text-base opacity-90 mb-6 sm:mb-8 max-w-2xl mx-auto">
-            Schedule your free consultation with Dr. M.H. Rizwi and start your
-            journey to wellness.
-            <span className="text-primary-foreground/80 block mt-1 text-xs sm:text-sm">
-              डॉ. एम.एच. रिज़वी के साथ अपनी निःशुल्क परामर्श बुक करें और स्वस्थ जीवन की यात्रा शुरू करें।
-            </span>
-          </p>
-          <a
-            href="https://wa.me/919608628633"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block bg-primary-foreground text-primary px-5 sm:px-6 py-2.5 sm:py-3 rounded-lg hover:opacity-90 transition-all font-semibold hover:shadow-lg text-sm sm:text-base"
-          >
-            Contact Us Now / अभी संपर्क करें
-          </a>
-        </div>
-      </section>
-    </main>
-  );
+                        <div className="bg-slate-50/80 rounded-2xl p-6 md:p-7 border border-slate-100 hover:shadow-lg transition-all duration-300">
+                            <div className="flex items-start gap-4">
+                                <div className="w-11 h-11 rounded-xl bg-secondary/10 flex items-center justify-center flex-shrink-0">
+                                    <Clock size={20} className="text-secondary" />
+                                </div>
+                                <div className="flex-1">
+                                    <h3 className="text-xl font-bold text-slate-800 mb-1">Clinic Timings</h3>
+                                    <p className="text-slate-500 text-sm">क्लिनिक समय</p>
+                                    <div className="mt-2 space-y-2 p-4 bg-white rounded-xl border border-slate-200">
+                                        <div className="flex justify-between items-center border-b border-slate-100 pb-2">
+                                            <div>
+                                                <p className="font-semibold text-slate-800 text-sm">Mon - Sat</p>
+                                                <p className="text-slate-400 text-xs">सोमवार से शनिवार</p>
+                                            </div>
+                                            <p className="text-slate-700 text-sm font-medium">11:00 AM – 8:00 PM</p>
+                                        </div>
+                                        <div className="flex justify-between items-center border-b border-slate-100 pb-2">
+                                            <div>
+                                                <p className="font-semibold text-slate-800 text-sm">Friday</p>
+                                                <p className="text-slate-400 text-xs">शुक्रवार</p>
+                                            </div>
+                                            <p className="text-rose-500 text-sm font-medium">Closed</p>
+                                        </div>
+                                        <div className="flex justify-between items-center">
+                                            <div>
+                                                <p className="font-semibold text-slate-800 text-sm">Sunday</p>
+                                                <p className="text-slate-400 text-xs">रविवार</p>
+                                            </div>
+                                            <p className="text-slate-700 text-sm font-medium">4:00 PM – 8:00 PM</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* Inline animations */}
+            <style jsx>{`
+                @keyframes float {
+                    0%, 100% { transform: translateY(0px); }
+                    50% { transform: translateY(-10px); }
+                }
+                .animate-float {
+                    animation: float 4s ease-in-out infinite;
+                }
+            `}</style>
+        </main>
+    );
 }
